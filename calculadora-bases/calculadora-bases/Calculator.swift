@@ -40,4 +40,11 @@ class Calculator: NSObject {
         
         return answer
     }
+    func convertBase(one: Number, base: Int)->Number  {
+        let oneDecimal = one.integralPartToDecimal()
+        let cBase = Number.convertFromDecimalToBase(num: oneDecimal, TargetBase: base)
+        let answer = Number(base: base, integralPart: cBase, fractionalPart: nil)
+        return answer
+    }
+    
 }

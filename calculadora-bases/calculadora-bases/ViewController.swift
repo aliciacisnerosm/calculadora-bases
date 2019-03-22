@@ -23,10 +23,12 @@ class ViewController: UIViewController {
         print(n.integralPartToDecimal())
         print(b.integralPartToDecimal())
         
-        let ans = calc.subtractNumbers(one: n, two: b, base: 16)
+        var ans = calc.subtractNumbers(one: n, two: b, base: 16)
         print(ans.integralPart!)
         print(ans.integralPartToDecimal())
         
+        ans = calc.convertBase(one: n, base: 11)
+        print(ans.integralPart!)
     }
 
 }
