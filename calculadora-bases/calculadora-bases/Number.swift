@@ -11,7 +11,7 @@
 import UIKit
 
 class Number: NSObject {
-	var base: Int!										// Number base in which the number operates.
+	var base: Int!										// Number base in which the number operates
 	var integralPart: String!					// Integer part of the number
 	var fractionalPart: String?				// Decimal part of the number
 	var isNegative: Bool!							// Determines if number is negative or not
@@ -32,7 +32,6 @@ class Number: NSObject {
 		// Reverse the order of the number to start at position 0.
 		let reverseNumber = String(self.integralPart.reversed())
 		let digits = CharacterSet.decimalDigits
-		
 		var position = 0
 		var decimalAnswer = 0
 		
@@ -47,32 +46,29 @@ class Number: NSObject {
 			}
 			
 			// Converting intNum to decimal by using number * base ^ position.
-			decimalAnswer = decimalAnswer + Int((Double(intNum) * pow(Double(self.base), Double(position))))
-			position = position + 1
+			decimalAnswer += intNum * Int(pow(Double(self.base), Double(position)))
+			position += 1
 		}
 		
-		if self.isNegative {
-			decimalAnswer = decimalAnswer * -1
-		}
+		// Turn number to negative if necessary
+		decimalAnswer *= (self.isNegative ? -1 : 1)
 		
 		return decimalAnswer
 	}
 	
-	// MARK -- Converts number from base 10 to base TargetBase.
-	static func convertFromDecimalToBase(num: Int, TargetBase: Int) -> String {
-		
-		var newNumber: String = String()
+	// MARK -- Converts number from base 10 to base `targetBase`.
+	static func convertFromDecimalToBase(num: Int, targetBase: Int) -> String {
 		var varNum = num
 		var negativeNumber = false
+		var newNumber = ""
 		
 		if varNum < 0 {
 			negativeNumber = true
-			varNum = varNum * -1
+			varNum *= -1
 		}
 		
 		while (varNum != 0) {
-			
-			let remainder = varNum % TargetBase
+			let remainder = varNum % targetBase
 			
 			if let hasDigitBiggerThanTen = Number.numberToLetter[remainder] {
 				newNumber.append(hasDigitBiggerThanTen)
@@ -80,22 +76,19 @@ class Number: NSObject {
 				newNumber.append(String(remainder))
 			}
 			
-			varNum = varNum / TargetBase
+			varNum = varNum / targetBase
 		}
 		
 		if negativeNumber {
 			newNumber.append("-")
 		}
 		
-		if newNumber.isEmpty {
-			newNumber = "0"
-		} else {
-			newNumber = String(newNumber.reversed())
-		}
+		newNumber = (newNumber.isEmpty ? "0" : String(newNumber.reversed()))
 		
 		return newNumber
 	}
 	
+	// MARK: - Initializer
 	init(base: Int, integralPart: String, fractionalPart: String?) {
 		self.base = base
 		self.integralPart = integralPart
@@ -112,5 +105,4 @@ class Number: NSObject {
 			self.isNegative = true
 		}
 	}
-	
 }

@@ -16,7 +16,7 @@ class Calculator: NSObject {
 		let twoDecimal = two.integralPartToDecimal()
 		
 		let sum = oneDecimal + twoDecimal
-		let sumInBase = Number.convertFromDecimalToBase(num: sum, TargetBase: base)
+		let sumInBase = Number.convertFromDecimalToBase(num: sum, targetBase: base)
 		let answer = Number(base: base, integralPart: sumInBase, fractionalPart: nil)
 		
 		return answer
@@ -28,7 +28,7 @@ class Calculator: NSObject {
 		let twoDecimal = two.integralPartToDecimal()
 		
 		let subtraction = oneDecimal - twoDecimal
-		let subtractionInBase = Number.convertFromDecimalToBase(num: subtraction, TargetBase: base)
+		let subtractionInBase = Number.convertFromDecimalToBase(num: subtraction, targetBase: base)
 		let answer = Number(base: base, integralPart: subtractionInBase, fractionalPart: nil)
 		
 		return answer
@@ -37,7 +37,7 @@ class Calculator: NSObject {
 	// Convert number to another base
 	func convertBase(one: Number, base: Int) -> Number  {
 		let oneDecimal = one.integralPartToDecimal()
-		let cBase = Number.convertFromDecimalToBase(num: oneDecimal, TargetBase: base)
+		let cBase = Number.convertFromDecimalToBase(num: oneDecimal, targetBase: base)
 		let answer = Number(base: base, integralPart: cBase, fractionalPart: nil)
 		return answer
 	}
