@@ -14,22 +14,28 @@ class Number: NSObject {
     
     // Number base in which the number operates.
     var base: Int!
-    // The number itself.
-    var numeral: String!
+    
+    var integralPart: String!
     var fractionalPart: String?
-    let letterNums = ["A": 10, "B": 11, "C": 12,
+    var isNegative: Bool!
+    
+    static let letterToNumber = ["A": 10, "B": 11, "C": 12,
                       "D": 13, "E": 14, "F": 15]
     
-    func getNumeral() -> String {
-        return self.numeral
+    static let numberToLetter = [10 : "A", 11 : "B", 12 : "C", 13 : "D",
+                                 14 : "D", 15 : "F"]
+    
+    // MARK -- Gets the integer part.
+    func getIntegralPart() -> String {
+        return self.integralPart
     }
     
-    // Convert the numeral part to decimal
-    func numeralToDecimal() -> Int {
-        if base == 10 { return Int(self.numeral)! }
-
+    // MARK -- Converts integer part to base 10.
+    func integralPartToDecimal() -> Int {
+        if base == 10 { return Int(self.integralPart)! }
+        
         // Reverse the order of the number to start at position 0.
-        let reverseNumber = String(self.numeral.reversed())
+        let reverseNumber = String(self.integralPart.reversed())
         let digits = CharacterSet.decimalDigits
         
         var position = 0
@@ -42,7 +48,7 @@ class Number: NSObject {
             if digits.contains(num) {
                 intNum = Int(String(num))!
             } else {
-                intNum = self.letterNums[String(num)]!
+                intNum = Number.letterToNumber[String(num)]!
             }
             
             // Converting intNum to decimal by using number * base ^ position.
@@ -50,20 +56,40 @@ class Number: NSObject {
             position = position + 1
         }
         
+        if self.isNegative {
+            decimalAnswer = decimalAnswer * -1
+        }
+        
         return decimalAnswer
     }
     
-    
+    // MARK -- Converts number from base 10 to base TargetBase.
     static func convertFromDecimalToBase(num: Int, TargetBase: Int) -> String {
-
+        
         var newNumber: String = String()
         var varNum = num
+        var negativeNumber = false
+        
+        if varNum < 0 {
+            negativeNumber = true
+            varNum = varNum * -1
+        }
         
         while(varNum != 0){
+            
             let remainder = varNum % TargetBase
-            newNumber.append(String(remainder))
+            
+            if let hasDigitBiggerThanTen = Number.numberToLetter[remainder] {
+                newNumber.append(hasDigitBiggerThanTen)
+            } else {
+                newNumber.append(String(remainder))
+            }
             
             varNum = varNum / TargetBase
+        }
+        
+        if negativeNumber {
+            newNumber.append("-")
         }
         
         if newNumber.isEmpty {
@@ -75,9 +101,21 @@ class Number: NSObject {
         return newNumber
     }
     
-    init(base: Int, numeral: String, fractionalPart: String?) {
+    init(base: Int, integralPart: String, fractionalPart: String?) {
         self.base = base
-        self.numeral = numeral
+        self.integralPart = integralPart
+        self.isNegative = false
+        
+        // Remove '-' sign
+        if self.integralPart[integralPart.startIndex] == "-" {
+            let start = integralPart.index(integralPart.startIndex, offsetBy: 1)
+            let end = integralPart.index(integralPart.endIndex, offsetBy: 0)
+            let range = start..<end
+            
+            let substr = integralPart[range]
+            self.integralPart = String(substr)
+            self.isNegative = true
+        }
     }
-
+    
 }

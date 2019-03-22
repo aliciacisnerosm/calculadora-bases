@@ -15,17 +15,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let n = Number(base: 2, numeral: "101", fractionalPart: nil)
-        let b = Number(base: 2, numeral: "101", fractionalPart: nil)
+        let n = Number(base: 16, integralPart: "C", fractionalPart: nil)
+        let b = Number(base: 16, integralPart: "FF", fractionalPart: nil)
         
         let calc = Calculator()
         
-        print(n.numeralToDecimal())
-        print(b.numeralToDecimal())
+        print(n.integralPartToDecimal())
+        print(b.integralPartToDecimal())
         
-        let ans = calc.subtractNumbers(one: n, two: b, base: 2)
-        print(ans.getNumeral())
-        print(ans.numeralToDecimal())
+        let ans = calc.subtractNumbers(one: n, two: b, base: 16)
+        print(ans.integralPart!)
+        print(ans.integralPartToDecimal())
         
     }
 
