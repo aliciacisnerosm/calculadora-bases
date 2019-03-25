@@ -9,27 +9,68 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var viewCal: UIView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let n = Number(base: 16, integralPart: "C", fractionalPart: nil)
-        let b = Number(base: 16, integralPart: "FF", fractionalPart: nil)
-        
-        let calc = Calculator()
-        
-        print(n.integralPartToDecimal())
-        print(b.integralPartToDecimal())
-        
-        var ans = calc.subtractNumbers(one: n, two: b, base: 16)
-        print(ans.integralPart!)
-        print(ans.integralPartToDecimal())
-        
-        ans = calc.convertBase(one: n, base: 11)
-        print(ans.integralPart!)
-    }
-
+	@IBOutlet weak var viewCal: UIView!
+	@IBOutlet weak var lbTopNum: UILabel!
+	@IBOutlet weak var lbBottomNum: UILabel!
+	
+	let calc = Calculator()
+	var topNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+	var bottomNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+	var activeOperation = 0
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
+	
+	@IBAction func typeNumber(_ sender: UIButton) {
+		let ch: Character!
+		
+		if sender.tag < 10 {
+			ch = Character(String(sender.tag))
+		} else {
+			ch = Character(Number.numberToLetter[sender.tag]!)
+		}
+		
+		if (lbTopNum.text == "0") {
+			lbTopNum.text = String(ch)
+		} else {
+			lbTopNum.text?.append(ch)
+		}
+	}
+	
+	@IBAction func clear(_ sender: UIButton) {
+		topNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+		lbTopNum.text = topNum.getIntegralPart()
+		
+		if sender.tag == 1 {
+			bottomNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+			lbBottomNum.text = bottomNum.getIntegralPart()
+			activeOperation = 0
+		}
+	}
+	
+	@IBAction func operation(_ sender: UIButton) {
+		topNum = Number(base: 10, integralPart: lbTopNum.text!, fractionalPart: nil)
+		
+		switch activeOperation {
+		case 0:		// Equal
+			if topNum.getIntegralPart() != "0" {
+				bottomNum = topNum
+			}
+			break
+		case 1:		// Sum
+			bottomNum = calc.addNumbers(one: bottomNum, two: topNum, base: 10)
+			break
+		case 2:		// Subtract
+			bottomNum = calc.subtractNumbers(one: bottomNum, two: topNum, base: 10)
+			break
+		default: break	// No active operation
+		}
+		
+		topNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+		lbTopNum.text = topNum.getIntegralPart()
+		lbBottomNum.text = bottomNum.getIntegralPart()
+		activeOperation = sender.tag
+	}
 }
 
