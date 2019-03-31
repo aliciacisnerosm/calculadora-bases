@@ -67,7 +67,7 @@ class CalculatorViewController: UIViewController {
 				 7,
 				 8,
 				 9:			// Numpad button (0-9, A-F, .) Note: Case 10 (.) is omitted because decimals have not been implemented yet
-			typeDigit(digit: Character(String(sender.tag)))
+			typeDigit(digit: sender.titleLabel!.text!)
 			sender.backgroundColor = buttonColors[0]
 			
 		case 11:		// Delete button
@@ -113,9 +113,9 @@ class CalculatorViewController: UIViewController {
 	}
 	
 	// Inputs a digit
-	func typeDigit(digit: Character) {
+	func typeDigit(digit: String) {
 		if (lbResult.text == "0" || !hasTyped) {
-			lbResult.text = String(digit)
+			lbResult.text = digit
 		} else {
 			lbResult.text!.append(digit)
 		}
