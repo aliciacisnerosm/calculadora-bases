@@ -54,10 +54,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aXx-o7-A10" userLabel="Functions Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="103.33333333333333"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-29-oOw">
+                                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-29-oOw">
                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="103.33333333333333"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                         <state key="normal" title="↑">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -66,10 +66,10 @@
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="KVG-Zj-hGT"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liQ-5w-IbB">
+                                                    <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liQ-5w-IbB">
                                                         <rect key="frame" x="103.66666666666669" y="0.0" width="103" height="103.33333333333333"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                         <state key="normal" title="⁺∕₋">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -78,22 +78,22 @@
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="bh3-Nj-fmo"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e9F-OK-J39">
+                                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="e9F-OK-J39">
                                                         <rect key="frame" x="207.66666666666666" y="0.0" width="102.66666666666666" height="103.33333333333333"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                         <state key="normal" title="Change Base">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="P1f-Xd-GHJ"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="aiV-Rt-Ec3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-aR-kju">
+                                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-aR-kju">
                                                         <rect key="frame" x="311.33333333333331" y="0.0" width="102.66666666666669" height="103.33333333333333"/>
                                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                         <state key="normal" title="Settings">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -113,10 +113,10 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AXc-gS-BVY">
                                                                 <rect key="frame" x="0.0" y="0.0" width="309.66666666666669" height="102.33333333333333"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-BA-KQ8">
+                                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6g-BA-KQ8">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="7">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -125,10 +125,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="L4o-0g-D3Q"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di5-Rh-wZa">
+                                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Di5-Rh-wZa">
                                                                         <rect key="frame" x="103.66666666666666" y="0.0" width="102.66666666666666" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="8">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -137,10 +137,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="ghr-Uv-dlM"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j9-ey-l5A">
+                                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j9-ey-l5A">
                                                                         <rect key="frame" x="207.33333333333334" y="0.0" width="102.33333333333334" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="9">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -154,10 +154,10 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="R27-7U-SR0">
                                                                 <rect key="frame" x="0.0" y="103.33333333333337" width="309.66666666666669" height="102.33333333333331"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqd-ft-msZ">
+                                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqd-ft-msZ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="4">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -166,10 +166,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="nI8-EH-VqO"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-7A-ObH">
+                                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-7A-ObH">
                                                                         <rect key="frame" x="103.66666666666666" y="0.0" width="102.66666666666666" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="5">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -178,10 +178,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="d3g-AP-CCH"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABi-MB-YlE">
+                                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABi-MB-YlE">
                                                                         <rect key="frame" x="207.33333333333334" y="0.0" width="102.33333333333334" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="6">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -195,22 +195,22 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="0gO-xM-rwJ">
                                                                 <rect key="frame" x="0.0" y="206.66666666666666" width="309.66666666666669" height="102.66666666666666"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bD2-iM-bFU">
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bD2-iM-bFU">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="102.66666666666667"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="1">
-                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Ewd-vi-kn5"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="rV1-eh-0BM"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-dt-uQj">
+                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-dt-uQj">
                                                                         <rect key="frame" x="103.66666666666666" y="0.0" width="102.66666666666666" height="102.66666666666667"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="2">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -219,10 +219,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="kni-tF-dTZ"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT2-6Y-Qam">
+                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jT2-6Y-Qam">
                                                                         <rect key="frame" x="207.33333333333334" y="0.0" width="102.33333333333334" height="102.66666666666667"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="3">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -236,7 +236,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-Pk-aq5">
                                                                 <rect key="frame" x="0.0" y="310.33333333333331" width="309.66666666666669" height="102.33333333333331"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nni-Ll-fNa">
+                                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="Nni-Ll-fNa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" red="1" green="0.2132711540677118" blue="0.29675050162946426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -248,10 +248,10 @@
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="hx0-bw-Hl8"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sub-bq-SzR">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sub-bq-SzR">
                                                                         <rect key="frame" x="103.66666666666666" y="0.0" width="102.66666666666666" height="102.33333333333333"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="0">
                                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
@@ -279,10 +279,10 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-tl-M4a" userLabel="Operations Stack View">
                                                         <rect key="frame" x="310.66666666666669" y="0.0" width="103.33333333333331" height="412.66666666666669"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfz-5R-3xO">
+                                                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfz-5R-3xO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="102.33333333333333"/>
                                                                 <color key="backgroundColor" red="0.87093404200000002" green="0.50969833399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                 <state key="normal" title="-">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
@@ -291,10 +291,10 @@
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="pj8-hV-GWB"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Pu-Prs">
+                                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms6-Pu-Prs">
                                                                 <rect key="frame" x="0.0" y="103.33333333333337" width="103.33333333333333" height="102.33333333333331"/>
                                                                 <color key="backgroundColor" red="0.87093404200000002" green="0.50969833399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                 <state key="normal" title="+">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
@@ -303,10 +303,10 @@
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="IxJ-mw-yv7"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-T0-Gfh">
+                                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-T0-Gfh">
                                                                 <rect key="frame" x="0.0" y="206.66666666666669" width="103.33333333333333" height="206"/>
                                                                 <color key="backgroundColor" red="0.87093404200000002" green="0.50969833399999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                 <state key="normal" title="=">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
@@ -354,8 +354,24 @@
                         <viewLayoutGuide key="safeArea" id="zPb-9N-v9m"/>
                     </view>
                     <connections>
+                        <outlet property="btnDelete" destination="Nni-Ll-fNa" id="XFC-4O-uiL"/>
                         <outlet property="lbEquation" destination="eyy-G5-ynQ" id="CqH-YI-fRC"/>
                         <outlet property="lbResult" destination="QHo-d4-MuB" id="3px-wH-VC7"/>
+                        <outletCollection property="btnNumpad" destination="sub-bq-SzR" collectionClass="NSMutableArray" id="jw9-H5-V7N"/>
+                        <outletCollection property="btnNumpad" destination="bD2-iM-bFU" collectionClass="NSMutableArray" id="T4v-4x-qkc"/>
+                        <outletCollection property="btnNumpad" destination="tv3-dt-uQj" collectionClass="NSMutableArray" id="Lpz-XF-7CT"/>
+                        <outletCollection property="btnNumpad" destination="jT2-6Y-Qam" collectionClass="NSMutableArray" id="uwV-kz-6o7"/>
+                        <outletCollection property="btnNumpad" destination="nqd-ft-msZ" collectionClass="NSMutableArray" id="Rkj-30-mfU"/>
+                        <outletCollection property="btnNumpad" destination="kZk-7A-ObH" collectionClass="NSMutableArray" id="BCK-Zl-nRS"/>
+                        <outletCollection property="btnNumpad" destination="ABi-MB-YlE" collectionClass="NSMutableArray" id="Njn-dF-zSs"/>
+                        <outletCollection property="btnNumpad" destination="f6g-BA-KQ8" collectionClass="NSMutableArray" id="XoI-ut-V26"/>
+                        <outletCollection property="btnNumpad" destination="Di5-Rh-wZa" collectionClass="NSMutableArray" id="8o1-dE-F0Q"/>
+                        <outletCollection property="btnNumpad" destination="5j9-ey-l5A" collectionClass="NSMutableArray" id="4uI-iB-fht"/>
+                        <outletCollection property="btnNumpad" destination="ct3-df-ckb" collectionClass="NSMutableArray" id="asH-NA-33z"/>
+                        <outletCollection property="btnFunctions" destination="qPK-29-oOw" collectionClass="NSMutableArray" id="VWv-2z-6Tj"/>
+                        <outletCollection property="btnFunctions" destination="liQ-5w-IbB" collectionClass="NSMutableArray" id="vUE-xG-Uki"/>
+                        <outletCollection property="btnFunctions" destination="e9F-OK-J39" collectionClass="NSMutableArray" id="tAC-PA-ex8"/>
+                        <outletCollection property="btnFunctions" destination="onf-aR-kju" collectionClass="NSMutableArray" id="At3-Q2-ver"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEW-SH-Mk7" userLabel="First Responder" sceneMemberID="firstResponder"/>

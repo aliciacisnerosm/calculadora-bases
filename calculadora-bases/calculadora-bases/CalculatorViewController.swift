@@ -4,6 +4,9 @@ import UIKit
 class CalculatorViewController: UIViewController {
 	@IBOutlet weak var lbResult: UILabel!
 	@IBOutlet weak var lbEquation: UILabel!
+	@IBOutlet var btnNumpad: [UIButton]!
+	@IBOutlet weak var btnDelete: UIButton!
+	@IBOutlet var btnFunctions: [UIButton]!
 	
 	let calculator = Calculator()
 	let buttonColors = [
@@ -20,6 +23,7 @@ class CalculatorViewController: UIViewController {
 	]
 	var result = Number(base: 10, integralPart: "0", fractionalPart: nil)
 	var activeOperation = 0
+	var secondMode = false
 	var hasTyped = false
 	
 	override func viewDidLoad() {
@@ -27,6 +31,7 @@ class CalculatorViewController: UIViewController {
 		
 		lbResult.text = "0"
 		lbEquation.text = ""
+		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center
 	}
 	
 	// MARK: - Calculator buttons
@@ -88,7 +93,10 @@ class CalculatorViewController: UIViewController {
 			sender.backgroundColor = buttonColors[2]
 			
 		case 15:		// '2nd' button
-			sender.backgroundColor = buttonColors[3]
+			toggle2ndMode()
+			if !secondMode {
+				sender.backgroundColor = buttonColors[3]
+			}
 			
 		case 16:		// Change polarity button
 			sender.backgroundColor = buttonColors[3]
@@ -150,6 +158,45 @@ class CalculatorViewController: UIViewController {
 		
 		if activeOperation == 0 {
 			lbEquation.text?.append(contentsOf: " =")
+		}
+	}
+	
+	// Toggle '2nd' mode and change keys accordingly
+	func toggle2ndMode() {
+		secondMode = !secondMode
+		
+		if secondMode {		// 2nd mode
+			btnNumpad[0].setTitle("00", for: .normal)
+			btnNumpad[1].setTitle("a", for: .normal)
+			btnNumpad[2].setTitle("b", for: .normal)
+			btnNumpad[3].setTitle("c", for: .normal)
+			btnNumpad[4].setTitle("d", for: .normal)
+			btnNumpad[5].setTitle("e", for: .normal)
+			btnNumpad[6].setTitle("f", for: .normal)
+			btnNumpad[7].isEnabled = false
+			btnNumpad[8].isEnabled = false
+			btnNumpad[9].isEnabled = false
+			
+			btnDelete.setTitle("AC", for: .normal)
+			
+			btnFunctions[1].setTitle("C", for: .normal)
+			btnFunctions[2].setTitle("CD", for: .normal)
+		} else {					// Normal mode
+			btnNumpad[0].setTitle("0", for: .normal)
+			btnNumpad[1].setTitle("1", for: .normal)
+			btnNumpad[2].setTitle("2", for: .normal)
+			btnNumpad[3].setTitle("3", for: .normal)
+			btnNumpad[4].setTitle("4", for: .normal)
+			btnNumpad[5].setTitle("5", for: .normal)
+			btnNumpad[6].setTitle("6", for: .normal)
+			btnNumpad[7].isEnabled = true
+			btnNumpad[8].isEnabled = true
+			btnNumpad[9].isEnabled = true
+			
+			btnDelete.setTitle("⌫", for: .normal)
+			
+			btnFunctions[1].setTitle("⁺∕₋", for: .normal)
+			btnFunctions[2].setTitle("Change Base", for: .normal)
 		}
 	}
 	
