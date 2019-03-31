@@ -70,8 +70,12 @@ class CalculatorViewController: UIViewController {
 			typeDigit(digit: sender.titleLabel!.text!)
 			sender.backgroundColor = buttonColors[0]
 			
-		case 11:		// Delete button
-			deleteDigit()
+		case 11:		// Delete/AC button
+			if secondMode {
+				allClear()
+			} else {
+				deleteDigit()
+			}
 			sender.backgroundColor = buttonColors[1]
 			
 		case 12:		// Equal button
@@ -94,9 +98,6 @@ class CalculatorViewController: UIViewController {
 			
 		case 15:		// '2nd' button
 			toggle2ndMode()
-			if !secondMode {
-				sender.backgroundColor = buttonColors[3]
-			}
 			
 		case 16:		// Change polarity button
 			sender.backgroundColor = buttonColors[3]
@@ -132,6 +133,17 @@ class CalculatorViewController: UIViewController {
 			lbResult.text = "0"
 			hasTyped = true
 		}
+	}
+	
+	// All clear function
+	func allClear() {
+		result = Number(base: 10, integralPart: "0", fractionalPart: nil)
+		activeOperation = 0
+		toggle2ndMode()
+		hasTyped = false
+		
+		lbResult.text = "0"
+		lbEquation.text = ""
 	}
 	
 	// Perform equal operation
@@ -195,6 +207,7 @@ class CalculatorViewController: UIViewController {
 			
 			btnDelete.setTitle("⌫", for: .normal)
 			
+			btnFunctions[0].backgroundColor = buttonColors[3]
 			btnFunctions[1].setTitle("⁺∕₋", for: .normal)
 			btnFunctions[2].setTitle("Change Base", for: .normal)
 		}
