@@ -167,12 +167,12 @@ class CalculatorViewController: UIViewController {
 		
 		if secondMode {		// 2nd mode
 			btnNumpad[0].setTitle("00", for: .normal)
-			btnNumpad[1].setTitle("a", for: .normal)
-			btnNumpad[2].setTitle("b", for: .normal)
-			btnNumpad[3].setTitle("c", for: .normal)
-			btnNumpad[4].setTitle("d", for: .normal)
-			btnNumpad[5].setTitle("e", for: .normal)
-			btnNumpad[6].setTitle("f", for: .normal)
+			btnNumpad[1].setTitle("A", for: .normal)
+			btnNumpad[2].setTitle("B", for: .normal)
+			btnNumpad[3].setTitle("C", for: .normal)
+			btnNumpad[4].setTitle("D", for: .normal)
+			btnNumpad[5].setTitle("E", for: .normal)
+			btnNumpad[6].setTitle("F", for: .normal)
 			toggleButton(button: btnNumpad[7])
 			toggleButton(button: btnNumpad[8])
 			toggleButton(button: btnNumpad[9])
