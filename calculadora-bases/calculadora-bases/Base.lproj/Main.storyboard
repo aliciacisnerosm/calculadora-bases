@@ -120,6 +120,9 @@
                                                                         <state key="normal" title="7">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <state key="disabled">
+                                                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Aop-et-Ddl"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="L4o-0g-D3Q"/>
@@ -132,6 +135,9 @@
                                                                         <state key="normal" title="8">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <state key="disabled">
+                                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Vth-QR-0sl"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="ghr-Uv-dlM"/>
@@ -143,6 +149,9 @@
                                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFontEmphasized" family=".AppleSystemUIFont" pointSize="18"/>
                                                                         <state key="normal" title="9">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
+                                                                        <state key="disabled">
+                                                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="djT-qT-W8Q"/>

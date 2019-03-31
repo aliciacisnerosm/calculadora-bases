@@ -31,7 +31,7 @@ class CalculatorViewController: UIViewController {
 		
 		lbResult.text = "0"
 		lbEquation.text = ""
-		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center
+		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
 	}
 	
 	// MARK: - Calculator buttons
@@ -173,9 +173,9 @@ class CalculatorViewController: UIViewController {
 			btnNumpad[4].setTitle("d", for: .normal)
 			btnNumpad[5].setTitle("e", for: .normal)
 			btnNumpad[6].setTitle("f", for: .normal)
-			btnNumpad[7].isEnabled = false
-			btnNumpad[8].isEnabled = false
-			btnNumpad[9].isEnabled = false
+			toggleButton(button: btnNumpad[7])
+			toggleButton(button: btnNumpad[8])
+			toggleButton(button: btnNumpad[9])
 			
 			btnDelete.setTitle("AC", for: .normal)
 			
@@ -189,15 +189,21 @@ class CalculatorViewController: UIViewController {
 			btnNumpad[4].setTitle("4", for: .normal)
 			btnNumpad[5].setTitle("5", for: .normal)
 			btnNumpad[6].setTitle("6", for: .normal)
-			btnNumpad[7].isEnabled = true
-			btnNumpad[8].isEnabled = true
-			btnNumpad[9].isEnabled = true
+			toggleButton(button: btnNumpad[7])
+			toggleButton(button: btnNumpad[8])
+			toggleButton(button: btnNumpad[9])
 			
 			btnDelete.setTitle("⌫", for: .normal)
 			
 			btnFunctions[1].setTitle("⁺∕₋", for: .normal)
 			btnFunctions[2].setTitle("Change Base", for: .normal)
 		}
+	}
+	
+	// Toggle button usability and visibility
+	func toggleButton(button: UIButton) {
+		button.isEnabled = !button.isEnabled
+		button.backgroundColor = button.isEnabled ? buttonColors[0] : activeColors[0]
 	}
 	
 	/*
