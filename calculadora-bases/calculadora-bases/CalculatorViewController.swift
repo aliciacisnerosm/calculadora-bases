@@ -33,7 +33,7 @@ class CalculatorViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+        
         result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
 		lbResult.text = "0"
 		lbEquation.text = ""
@@ -180,18 +180,44 @@ class CalculatorViewController: UIViewController {
 		}
 	}
     
+    // Toggles keys based on the current base.
+    func toggleKeysForBase(base: Int) {
+        if secondMode {
+            if base > 10 {
+                for idx in 1...6 {
+                    if idx + 10 <= base {
+                        toggleButton(button: btnNumpad[idx], enabled: true)
+                    } else {
+                        toggleButton(button: btnNumpad[idx], enabled: false)
+                    }
+                }
+            }
+        } else {
+            for idx in 0...9 {
+                if idx < base {
+                    toggleButton(button: btnNumpad[idx], enabled: true)
+                } else {
+                    toggleButton(button: btnNumpad[idx], enabled: false)
+                }
+            }
+        }
+    }
+    
     // Helper function for 'toggle2ndMode'
     func lettersKeyPadForSecondMode() {
-        btnNumpad[0].setTitle("00", for: .normal)
-        btnNumpad[1].setTitle("A", for: .normal)
-        btnNumpad[2].setTitle("B", for: .normal)
-        btnNumpad[3].setTitle("C", for: .normal)
-        btnNumpad[4].setTitle("D", for: .normal)
-        btnNumpad[5].setTitle("E", for: .normal)
-        btnNumpad[6].setTitle("F", for: .normal)
-        toggleButton(button: btnNumpad[7])
-        toggleButton(button: btnNumpad[8])
-        toggleButton(button: btnNumpad[9])
+        
+        if currentBase > 10 {
+            btnNumpad[0].setTitle("00", for: .normal)
+            btnNumpad[1].setTitle("A", for: .normal)
+            btnNumpad[2].setTitle("B", for: .normal)
+            btnNumpad[3].setTitle("C", for: .normal)
+            btnNumpad[4].setTitle("D", for: .normal)
+            btnNumpad[5].setTitle("E", for: .normal)
+            btnNumpad[6].setTitle("F", for: .normal)
+            toggleButton(button: btnNumpad[7], enabled: false)
+            toggleButton(button: btnNumpad[8], enabled: false)
+            toggleButton(button: btnNumpad[9], enabled: false)
+        }
         
         btnDelete.setTitle("AC", for: .normal)
         
@@ -208,9 +234,9 @@ class CalculatorViewController: UIViewController {
         btnNumpad[4].setTitle("4", for: .normal)
         btnNumpad[5].setTitle("5", for: .normal)
         btnNumpad[6].setTitle("6", for: .normal)
-        toggleButton(button: btnNumpad[7])
-        toggleButton(button: btnNumpad[8])
-        toggleButton(button: btnNumpad[9])
+        toggleButton(button: btnNumpad[7], enabled: true)
+        toggleButton(button: btnNumpad[8], enabled: true)
+        toggleButton(button: btnNumpad[9], enabled: true)
         
         btnDelete.setTitle("⌫", for: .normal)
         
@@ -225,17 +251,18 @@ class CalculatorViewController: UIViewController {
 		
 		if secondMode {		// 2nd mode
             lettersKeyPadForSecondMode()
+            toggleKeysForBase(base: currentBase)
 		} else {					// Normal mode
 			numberKeyPadForSecondMode()
+            toggleKeysForBase(base: currentBase)
 		}
 	}
 	
 	// Toggle button usability and visibility
-	func toggleButton(button: UIButton) {
-		button.isEnabled = !button.isEnabled
+    func toggleButton(button: UIButton, enabled: Bool) {
+		button.isEnabled = enabled
 		button.backgroundColor = button.isEnabled ? buttonColors[0] : activeColors[0]
 	}
-	
 	
 	// MARK: - Navigation
 	
@@ -252,6 +279,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func unwindBases(unwindSegue : UIStoryboardSegue) {
         allClear()
+        toggleKeysForBase(base: currentBase)
     }
  
 }
