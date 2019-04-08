@@ -8,7 +8,10 @@ class CalculatorViewController: UIViewController {
 	@IBOutlet weak var btnDelete: UIButton!
 	@IBOutlet var btnFunctions: [UIButton]!
 	
+    
+    var currentBase = 10
 	let calculator = Calculator()
+    
 	let buttonColors = [
 		UIColor(hex: 0xffffff),
 		UIColor(hex: 0xfc3951),
@@ -21,7 +24,9 @@ class CalculatorViewController: UIViewController {
 		UIColor(hex: 0xca7be6),
 		UIColor(hex: 0x3d3d3d)
 	]
-	var result = Number(base: 10, integralPart: "0", fractionalPart: nil)
+    
+    // Default number in calculator on start up.
+    var result = Number(base: 10, integralPart: "0", fractionalPart: nil)
 	var activeOperation = 0
 	var secondMode = false
 	var hasTyped = false
@@ -29,6 +34,7 @@ class CalculatorViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+        result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
 		lbResult.text = "0"
 		lbEquation.text = ""
 		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
@@ -51,6 +57,8 @@ class CalculatorViewController: UIViewController {
 			sender.backgroundColor = activeColors[3]
 		}
 	}
+    
+    
 	
 	// Activates when a button is pressed
 	@IBAction func buttonPress(_ sender: UIButton) {
@@ -137,7 +145,7 @@ class CalculatorViewController: UIViewController {
 	
 	// All clear function
 	func allClear() {
-		result = Number(base: 10, integralPart: "0", fractionalPart: nil)
+		result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
 		activeOperation = 0
 		toggle2ndMode()
 		hasTyped = false
@@ -148,17 +156,17 @@ class CalculatorViewController: UIViewController {
 	
 	// Perform equal operation
 	func operation(nextOp: Int) {
-		let current = Number(base: 10, integralPart: lbResult.text!, fractionalPart: nil)
+		let current = Number(base: currentBase, integralPart: lbResult.text!, fractionalPart: nil)
 		
 		switch activeOperation {
 		case 0:		// Equal / No operation currently
 			result = current
 			lbEquation.text = current.getIntegralPart()
 		case 1:		// Addition
-			result = calculator.addNumbers(one: result, two: current, base: 10)
+			result = calculator.addNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " + %@", current.getIntegralPart()))
 		case 2:		// Subtraction
-			result = calculator.subtractNumbers(one: result, two: current, base: 10)
+			result = calculator.subtractNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " - %@", current.getIntegralPart()))
 		default:
 			print("ERROR: Invalid operation?")
