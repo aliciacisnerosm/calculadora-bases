@@ -21,7 +21,7 @@ class Number: NSObject {
 	
 	// MARK -- Gets the integer part.
 	func getIntegralPart() -> String {
-		return self.integralPart
+		return (isNegative ? "-" : "") + self.integralPart
 	}
 	
 	// MARK -- Converts integer part to base 10.
