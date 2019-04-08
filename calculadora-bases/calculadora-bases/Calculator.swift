@@ -41,4 +41,36 @@ class Calculator: NSObject {
 		let answer = Number(base: base, integralPart: cBase, fractionalPart: nil)
 		return answer
 	}
+    
+    // Get the diminished radix complement of a number in any base.
+    func getDiminishedRadixComplement(num: Number) -> Number {
+        
+        let numberOfDigits = num.integralPart.count
+        var maxDigit = String(num.base - 1)
+        
+        switch maxDigit {
+            case "10": maxDigit = "A"
+            case "11": maxDigit = "B"
+            case "12": maxDigit = "C"
+            case "13": maxDigit = "D"
+            case "14": maxDigit = "E"
+            case "15": maxDigit = "F"
+            default: print("No decimal to letter conversion needed.")
+        }
+        
+        let n = String(repeating: maxDigit, count: numberOfDigits)
+        let baseBeta = Number(base: num.base, integralPart: n, fractionalPart: nil)
+        
+        let diminishedRadixComplement = self.subtractNumbers(one: baseBeta, two: num, base: num.base)
+        
+        return diminishedRadixComplement
+    }
+    
+    // Get the radix complement of a number in any base.
+    func getRadixComplement(num: Number) -> Number {
+        let radixComplement = self.getDiminishedRadixComplement(num: num)
+        let numberOne = Number(base: num.base, integralPart: "1", fractionalPart: nil)
+        return self.addNumbers(one: radixComplement, two: numberOne, base: num.base)
+    }
+    
 }
