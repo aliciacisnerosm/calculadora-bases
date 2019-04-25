@@ -60,7 +60,6 @@ class Number: NSObject {
     func fractionalPartToDecimal() -> Double {
         
         guard let hasFraction = self.fractionalPart else { return 0 }
-        if base == 10 { return Double(hasFraction)! }
         
         let digits = CharacterSet.decimalDigits
         var positionalExponent = -1
