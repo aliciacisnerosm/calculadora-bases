@@ -11,7 +11,9 @@ class CalculatorViewController: UIViewController {
     
     var currentBase = 10
 	let calculator = Calculator()
-    
+    var history : HistoryManager!
+    var arrayHM : NSMutableArray!
+   
 	let buttonColors = [
 		UIColor(hex: 0xffffff),
 		UIColor(hex: 0xfc3951),
@@ -38,6 +40,8 @@ class CalculatorViewController: UIViewController {
 		lbResult.text = "0"
 		lbEquation.text = ""
 		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
+        arrayHM = NSMutableArray()
+        history = HistoryManager(arrayHM: arrayHM)
 	}
 	
 	// MARK: - Calculator buttons
@@ -161,15 +165,19 @@ class CalculatorViewController: UIViewController {
 		case 0:		// Equal / No operation currently
 			result = current
 			lbEquation.text = current.getIntegralPart()
+                        
 		case 1:		// Addition
 			result = calculator.addNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " + %@", current.getIntegralPart()))
 		case 2:		// Subtraction
 			result = calculator.subtractNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " - %@", current.getIntegralPart()))
+       
 		default:
 			print("ERROR: Invalid operation?")
 		}
+        
+
 		
 		lbResult.text = result.getIntegralPart()
 		hasTyped = false
@@ -279,6 +287,15 @@ class CalculatorViewController: UIViewController {
         toggleKeysForBase(base: currentBase)
     }
  
+
+    
+    @IBAction func equals(_ sender: Any) {
+        print(lbEquation.text!)
+        let eqFin = lbEquation.text! + " " + lbResult.text!
+        arrayHM.add(eqFin)
+        arrayHM.write(toFile: history.dataFilePath(), atomically: true)
+        print(arrayHM)
+    }
 }
 
 // MARK: - Extensions
