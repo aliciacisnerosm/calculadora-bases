@@ -9,37 +9,106 @@
 import UIKit
 
 class Calculator: NSObject {
+    
+    func countDigits(num: Int) -> Int {
+        var n = num
+        var count = 0
+        while n > 0 {
+            n /= 10
+            count += 1
+        }
+        return count
+    }
+    
+    func sumFractions(one: Int, two: Int) -> [Int] {
+        let oneDigits = countDigits(num: one)
+        let twoDigits = countDigits(num: two)
+        let maxNumDigits = oneDigits > twoDigits ? oneDigits : twoDigits
+        
+        var carry: Int
+        var answer = one + two
+        
+        if countDigits(num: answer) > maxNumDigits {
+            carry = 1
+            var numInString = ""
+            for _ in 1...(countDigits(num: answer) - 1) {
+                numInString = String(answer % 10) + numInString
+                answer /= 10
+            }
+        } else {
+            carry = 0
+        }
+        
+        return [carry, answer]
+    }
+    
+    func subtractFractions(one: Int, two: Int) -> [Int] {
+        let oneDigits = countDigits(num: one)
+        let twoDigits = countDigits(num: two)
+        var answer: Int
+        var carry: Int
+        
+        if oneDigits > twoDigits {
+            answer = one - Int(pow(Double(two), Double(oneDigits - twoDigits)))
+        } else if twoDigits > oneDigits {
+            answer = Int(pow(Double(one), Double(twoDigits - oneDigits))) - two
+        } else {
+            answer = one - two
+        }
+        
+        if answer < 0 {
+            answer *= -1
+            carry = 1
+        } else {
+            carry = 0
+        }
+        
+        return [carry, answer]
+    }
 	
 	// Add two numbers in a given base between 2 and 16
 	func addNumbers(one: Number, two: Number, base: Int) -> Number {
-		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
-		let twoDecimal = Double(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
+        
+		let oneDecimal = one.integralPartToDecimal()
+		let twoDecimal = two.integralPartToDecimal()
+        
+        let fracPart = self.sumFractions(one: one.fractionalPartToDecimal(), two: two.fractionalPartToDecimal())
 		
-		let sum = oneDecimal + twoDecimal
+        let sum: Int = oneDecimal + twoDecimal + fracPart[0]
+        
+        let fractionToBase = Number.fractionalToBase(num: Double(fracPart[1]), targetBase: base)
         
 		let operation = Number.convertFromDecimalToBase(num: sum, targetBase: base)
-		let answer = Number(base: base, integralPart: operation[0]!, fractionalPart: operation[1])
+		let answer = Number(base: base, integralPart: operation, fractionalPart: fractionToBase)
 		
 		return answer
 	}
 	
 	// Subtract two number in a given base between 2 and 16
 	func subtractNumbers(one: Number, two: Number, base: Int) -> Number {
-		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
-		let twoDecimal = Double(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
+		let oneDecimal = one.integralPartToDecimal()
+		let twoDecimal = two.integralPartToDecimal()
 		
-		let subtraction = oneDecimal - twoDecimal
+        let fracPart = self.subtractFractions(one: one.fractionalPartToDecimal(), two: two.fractionalPartToDecimal())
+        
+        let subtraction : Int = oneDecimal - twoDecimal - fracPart[0]
+        
+        let fractionToBase = Number.fractionalToBase(num: Double(fracPart[1]), targetBase: base)
+        
 		let operation = Number.convertFromDecimalToBase(num: subtraction, targetBase: base)
-		let answer = Number(base: base, integralPart: operation[0]!, fractionalPart: operation[1])
+		let answer = Number(base: base, integralPart: operation, fractionalPart: fractionToBase)
 		
 		return answer
 	}
 	
 	// Convert number to another base
 	func convertBase(one: Number, base: Int) -> Number  {
-		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
+        let oneDecimal : Int = one.integralPartToDecimal()
+        let fracPart : Int = one.fractionalPartToDecimal()
+        let fractionToBase = Number.fractionalToBase(num: Double(fracPart), targetBase: base)
+        
 		let cBase = Number.convertFromDecimalToBase(num: oneDecimal, targetBase: base)
-		let answer = Number(base: base, integralPart: cBase[0]!, fractionalPart: cBase[1])
+		let answer = Number(base: base, integralPart: cBase, fractionalPart: fractionToBase)
 		return answer
 	}
     

@@ -38,6 +38,11 @@ class CalculatorViewController: UIViewController {
 		lbResult.text = "0"
 		lbEquation.text = ""
 		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
+        
+        let a = Number(base: 2, integralPart: "1001", fractionalPart: "101")
+        let b = Number(base: 2, integralPart: "10101", fractionalPart: "1010101")
+        let c = calculator.addNumbers(one: a, two: b, base: 2)
+        print(c.integralPart!, c.fractionalPart == nil ? 0 : c.fractionalPart!)
 	}
 	
 	// MARK: - Calculator buttons
