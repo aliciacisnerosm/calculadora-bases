@@ -94,7 +94,15 @@ class Number: NSObject {
         // Will only have 8 decimal places.
         for _ in 1...8 {
             numMut *= Double(targetBase)
-            fractional.append(String(Int(floor(numMut))))
+            let addNum = Int(floor(numMut))
+            let strNum : String
+            
+            if addNum >= 10 {
+                strNum = self.numberToLetter[addNum]!
+            } else {
+                strNum = String(addNum)
+            }
+            fractional.append(strNum)
             numMut -= floor(numMut)
         }
         
