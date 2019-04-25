@@ -184,6 +184,9 @@ class CalculatorViewController: UIViewController {
     func toggleKeysForBase(base: Int) {
         if secondMode {
             if base > 10 {
+                toggleButton(button: btnNumpad[7], enabled: false)
+                toggleButton(button: btnNumpad[8], enabled: false)
+                toggleButton(button: btnNumpad[9], enabled: false)
                 for idx in 1...6 {
                     if idx + 10 <= base {
                         toggleButton(button: btnNumpad[idx], enabled: true)
@@ -214,9 +217,6 @@ class CalculatorViewController: UIViewController {
             btnNumpad[4].setTitle("D", for: .normal)
             btnNumpad[5].setTitle("E", for: .normal)
             btnNumpad[6].setTitle("F", for: .normal)
-            toggleButton(button: btnNumpad[7], enabled: false)
-            toggleButton(button: btnNumpad[8], enabled: false)
-            toggleButton(button: btnNumpad[9], enabled: false)
         }
         
         btnDelete.setTitle("AC", for: .normal)
@@ -234,9 +234,6 @@ class CalculatorViewController: UIViewController {
         btnNumpad[4].setTitle("4", for: .normal)
         btnNumpad[5].setTitle("5", for: .normal)
         btnNumpad[6].setTitle("6", for: .normal)
-        toggleButton(button: btnNumpad[7], enabled: true)
-        toggleButton(button: btnNumpad[8], enabled: true)
-        toggleButton(button: btnNumpad[9], enabled: true)
         
         btnDelete.setTitle("⌫", for: .normal)
         
