@@ -32,7 +32,7 @@ class Number: NSObject {
 		// Reverse the order of the number to start at position 0.
 		let reverseNumber = String(self.integralPart.reversed())
 		let digits = CharacterSet.decimalDigits
-		var position = 0
+		var positionalExponent = 0
 		var decimalAnswer = 0
 		
 		// Convert to unicode scalars to check if they are member of digits.
@@ -46,8 +46,8 @@ class Number: NSObject {
 			}
 			
 			// Converting intNum to decimal by using number * base ^ position.
-			decimalAnswer += intNum * Int(pow(Double(self.base), Double(position)))
-			position += 1
+			decimalAnswer += intNum * Int(pow(Double(self.base), Double(positionalExponent)))
+			positionalExponent += 1
 		}
 		
 		// Turn number to negative if necessary
@@ -55,10 +55,63 @@ class Number: NSObject {
 		
 		return decimalAnswer
 	}
+    
+    // MARK -- Converts the fractional part to base 10
+    func fractionalPartToDecimal() -> Double {
+        
+        guard let hasFraction = self.fractionalPart else { return 0 }
+        if base == 10 { return Double(hasFraction)! }
+        
+        let digits = CharacterSet.decimalDigits
+        var positionalExponent = -1
+        var decimalAnswer: Double = 0.0
+        
+        for num in hasFraction.unicodeScalars {
+            var intNum: Int
+            
+            if digits.contains(num) {
+                intNum = Int(String(num))!
+            } else {
+                intNum = Number.letterToNumber[String(num)]!
+            }
+            
+            // Converting intNum to decimal by using number * base ^ position.
+            decimalAnswer += Double(intNum) * Double(pow(Double(self.base), Double(positionalExponent)))
+            positionalExponent -= 1
+        }
+        
+        while decimalAnswer >= 1.0 {
+            decimalAnswer /= 10.0
+        }
+        
+        return decimalAnswer
+    }
+    
+    // MARK -- Converts the fractional part of a number form base 10 to base 'targetBase'.
+    // Receives a fractional number less than 1 (0.xxxxx).
+    static func fractionalToBase(num: Double, targetBase: Int) -> String? {
+        var fractional: String = ""
+        var numMut = num
+        // Will only have 8 decimal places.
+        for _ in 1...8 {
+            numMut *= Double(targetBase)
+            fractional.append(String(Int(floor(numMut))))
+            numMut -= floor(numMut)
+        }
+        
+        var hasAllZeros: Bool = true
+        for digit in fractional {
+            if digit != "0" {
+                hasAllZeros = false
+            }
+        }
+        
+        return hasAllZeros ? nil : fractional
+    }
 	
-	// MARK -- Converts number from base 10 to base `targetBase`.
-	static func convertFromDecimalToBase(num: Int, targetBase: Int) -> String {
-		var varNum = num
+	// MARK -- Converts a number from base 10 to base `targetBase`.
+	static func convertFromDecimalToBase(num: Double, targetBase: Int) -> [String?] {
+		var varNum = Int(floor(num))
 		var negativeNumber = false
 		var newNumber = ""
 		
@@ -84,14 +137,18 @@ class Number: NSObject {
 		}
 		
 		newNumber = (newNumber.isEmpty ? "0" : String(newNumber.reversed()))
+        
+        let fractionalPart = num - floor(num)
+        let newFractionalNumber = self.fractionalToBase(num: fractionalPart, targetBase: targetBase)
 		
-		return newNumber
+		return [newNumber, newFractionalNumber]
 	}
 	
 	// MARK: - Initializer
 	init(base: Int, integralPart: String, fractionalPart: String?) {
 		self.base = base
 		self.integralPart = integralPart
+        self.fractionalPart = fractionalPart
 		self.isNegative = false
 		
 		// Remove '-' sign
