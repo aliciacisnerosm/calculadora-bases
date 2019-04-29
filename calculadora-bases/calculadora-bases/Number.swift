@@ -23,6 +23,10 @@ class Number: NSObject {
 	func getIntegralPart() -> String {
 		return (isNegative ? "-" : "") + self.integralPart
 	}
+    
+    func getFractionalPart() -> String? {
+        return fractionalPart
+    }
 	
 	// MARK -- Converts integer part to base 10.
 	func integralPartToDecimal() -> Int {
@@ -46,7 +50,7 @@ class Number: NSObject {
 			}
 			
 			// Converting intNum to decimal by using number * base ^ position.
-			decimalAnswer += intNum * Int(pow(Double(self.base), Double(positionalExponent)))
+			decimalAnswer += intNum * Int(pow(Float80(self.base), Float80(positionalExponent)))
 			positionalExponent += 1
 		}
 		
@@ -57,13 +61,13 @@ class Number: NSObject {
 	}
     
     // MARK -- Converts the fractional part to base 10
-    func fractionalPartToDecimal() -> Double {
+    func fractionalPartToDecimal() -> Float80 {
         
         guard let hasFraction = self.fractionalPart else { return 0 }
         
         let digits = CharacterSet.decimalDigits
         var positionalExponent = -1
-        var decimalAnswer: Double = 0.0
+        var decimalAnswer: Float80 = 0.0
         
         for num in hasFraction.unicodeScalars {
             var intNum: Int
@@ -75,7 +79,7 @@ class Number: NSObject {
             }
             
             // Converting intNum to decimal by using number * base ^ position.
-            decimalAnswer += Double(intNum) * Double(pow(Double(self.base), Double(positionalExponent)))
+            decimalAnswer += Float80(intNum) * Float80(pow(Float80(self.base), Float80(positionalExponent)))
             positionalExponent -= 1
         }
         
@@ -88,12 +92,12 @@ class Number: NSObject {
     
     // MARK -- Converts the fractional part of a number form base 10 to base 'targetBase'.
     // Receives a fractional number less than 1 (0.xxxxx).
-    static func fractionalToBase(num: Double, targetBase: Int) -> String? {
+    static func fractionalToBase(num: Float80, targetBase: Int) -> String? {
         var fractional: String = ""
         var numMut = num
         // Will only have 8 decimal places.
         for _ in 1...8 {
-            numMut *= Double(targetBase)
+            numMut *= Float80(targetBase)
             let addNum = Int(floor(numMut))
             let strNum : String
             
@@ -117,12 +121,12 @@ class Number: NSObject {
     }
 	
 	// MARK -- Converts a number from base 10 to base `targetBase`.
-	static func convertFromDecimalToBase(num: Double, targetBase: Int) -> [String?] {
-		var varNum = Int(floor(num))
+	static func convertFromDecimalToBase(num: Float80, targetBase: Int) -> [String?] {
+        var varNum = num < 0 ? Int(ceil(num)) : Int(floor(num))
 		var negativeNumber = false
 		var newNumber = ""
 		
-		if varNum < 0 {
+		if num < 0 {
 			negativeNumber = true
 			varNum *= -1
 		}
@@ -139,13 +143,13 @@ class Number: NSObject {
 			varNum = varNum / targetBase
 		}
 		
-		if negativeNumber {
-			newNumber.append("-")
-		}
-		
 		newNumber = (newNumber.isEmpty ? "0" : String(newNumber.reversed()))
         
-        let fractionalPart = num - floor(num)
+        if negativeNumber {
+            newNumber = "-" + newNumber
+        }
+        
+        let fractionalPart = num < 0 ? (num * -1.0) - (floor(num * -1.0)) : num - floor(num)
         let newFractionalNumber = self.fractionalToBase(num: fractionalPart, targetBase: targetBase)
 		
 		return [newNumber, newFractionalNumber]
