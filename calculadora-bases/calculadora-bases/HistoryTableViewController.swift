@@ -10,6 +10,9 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
 
+    @IBAction func disItem(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     var arrayHM : NSMutableArray = NSMutableArray()
     override func viewDidLoad() {
         super.viewDidLoad()

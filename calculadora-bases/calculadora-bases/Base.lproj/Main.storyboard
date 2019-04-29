@@ -501,7 +501,6 @@
         <!--Title-->
         <scene sceneID="b5c-VI-Kh1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="96N-x9-w5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="dyD-lT-uPy" customClass="HistoryTableViewController" customModule="calculadora_bases" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DGo-KC-GQu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -522,17 +521,21 @@
                             <outlet property="delegate" destination="dyD-lT-uPy" id="h74-A9-vQQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="2C8-tW-qcD">
-                        <barButtonItem key="backBarButtonItem" title="algo" id="pUm-Ld-kmk"/>
+                    <navigationItem key="navigationItem" title="Title" id="8Gz-bU-p2x">
+                        <barButtonItem key="leftBarButtonItem" title="BACK" id="0nt-9s-LT6">
+                            <connections>
+                                <action selector="disItem:" destination="dyD-lT-uPy" id="nfP-eQ-R5J"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96N-x9-w5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="-590.21739130434787"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ebQ-fk-xpS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RGI-py-P5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="geq-cE-yHo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a2Z-eO-Ofk">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -542,6 +545,7 @@
                         <segue destination="dyD-lT-uPy" kind="relationship" relationship="rootViewController" id="gUq-c2-UJ1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGI-py-P5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="874" y="-590"/>
         </scene>
