@@ -413,9 +413,6 @@
                                 <state key="normal" title="Select">
                                     <color key="titleColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <segue destination="QJs-18-OHK" kind="unwind" unwindAction="unwindBasesWithUnwindSegue:" id="2sT-kI-U4j"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098040588200092316" green="0.098037473857402802" blue="0.098038055002689362" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -434,8 +431,6 @@
                         <outlet property="btnSelectBase" destination="VOM-yn-TxK" id="4ct-WI-VTf"/>
                     </connections>
                 </viewController>
-
-
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="130.78817733990149"/>
@@ -580,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdS-aG-FxX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-604"/>
+            <point key="canvasLocation" x="1641" y="130"/>
         </scene>
     </scenes>
 </document>
