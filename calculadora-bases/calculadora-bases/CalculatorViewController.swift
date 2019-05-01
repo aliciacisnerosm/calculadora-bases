@@ -122,7 +122,12 @@ class CalculatorViewController: UIViewController {
 			toggleChangeBaseView()
 			sender.backgroundColor = buttonColors[3]
 			
-		case 18:		// Settings button
+		case 18:		// History/Settings button
+			if secondMode {
+				performSegue(withIdentifier: "settings", sender: nil)
+			} else {
+				performSegue(withIdentifier: "history", sender: nil)
+			}
 			sender.backgroundColor = buttonColors[3]
 			
 		default:
@@ -191,7 +196,6 @@ class CalculatorViewController: UIViewController {
 			print("ERROR: Invalid operation?")
 		}
 		
-		
 		lbResult.text = result.stringFormat()
 		hasTyped = false
 		activeOperation = nextOp
@@ -227,53 +231,49 @@ class CalculatorViewController: UIViewController {
 		}
 	}
 	
-	// Helper function for 'toggle2ndMode'
-	func lettersKeyPadForSecondMode() {
-		
-		if currentBase > 10 {
-			btnNumpad[0].setTitle("00", for: .normal)
-			btnNumpad[1].setTitle("A", for: .normal)
-			btnNumpad[2].setTitle("B", for: .normal)
-			btnNumpad[3].setTitle("C", for: .normal)
-			btnNumpad[4].setTitle("D", for: .normal)
-			btnNumpad[5].setTitle("E", for: .normal)
-			btnNumpad[6].setTitle("F", for: .normal)
-		}
-		
-		btnDelete.setTitle("AC", for: .normal)
-		
-		btnFunctions[1].setTitle("C", for: .normal)
-		btnFunctions[2].setTitle("CD", for: .normal)
-	}
-	
-	// Helper function for 'toggle2ndMode'
-	func numberKeyPadForSecondMode() {
-		btnNumpad[0].setTitle("0", for: .normal)
-		btnNumpad[1].setTitle("1", for: .normal)
-		btnNumpad[2].setTitle("2", for: .normal)
-		btnNumpad[3].setTitle("3", for: .normal)
-		btnNumpad[4].setTitle("4", for: .normal)
-		btnNumpad[5].setTitle("5", for: .normal)
-		btnNumpad[6].setTitle("6", for: .normal)
-		
-		btnDelete.setTitle("⌫", for: .normal)
-		
-		btnFunctions[0].backgroundColor = buttonColors[3]
-		btnFunctions[1].setTitle("⁺∕₋", for: .normal)
-		btnFunctions[2].setTitle("Change Base", for: .normal)
-	}
-	
 	// Toggle '2nd' mode and change keys accordingly
 	func toggle2ndMode() {
 		secondMode = !secondMode
 		
 		if secondMode {		// 2nd mode
-			lettersKeyPadForSecondMode()
-			toggleKeysForBase(base: currentBase)
+			// Numpad
+			if currentBase > 10 {
+				btnNumpad[0].setTitle("00", for: .normal)
+				btnNumpad[1].setTitle("A", for: .normal)
+				btnNumpad[2].setTitle("B", for: .normal)
+				btnNumpad[3].setTitle("C", for: .normal)
+				btnNumpad[4].setTitle("D", for: .normal)
+				btnNumpad[5].setTitle("E", for: .normal)
+				btnNumpad[6].setTitle("F", for: .normal)
+			}
+			
+			// Delete key
+			btnDelete.setTitle("AC", for: .normal)
+			
+			// Function keys
+			btnFunctions[1].setTitle("C", for: .normal)
+			btnFunctions[2].setTitle("CD", for: .normal)
+			btnFunctions[3].setTitle("Settings", for: .normal)
 		} else {					// Normal mode
-			numberKeyPadForSecondMode()
-			toggleKeysForBase(base: currentBase)
+			// Numpad
+			btnNumpad[0].setTitle("0", for: .normal)
+			btnNumpad[1].setTitle("1", for: .normal)
+			btnNumpad[2].setTitle("2", for: .normal)
+			btnNumpad[3].setTitle("3", for: .normal)
+			btnNumpad[4].setTitle("4", for: .normal)
+			btnNumpad[5].setTitle("5", for: .normal)
+			btnNumpad[6].setTitle("6", for: .normal)
+			
+			// Delete key
+			btnDelete.setTitle("⌫", for: .normal)
+			
+			// Function keys
+			btnFunctions[0].backgroundColor = buttonColors[3]
+			btnFunctions[1].setTitle("⁺∕₋", for: .normal)
+			btnFunctions[2].setTitle("Change Base", for: .normal)
+			btnFunctions[3].setTitle("History", for: .normal)
 		}
+		toggleKeysForBase(base: currentBase)
 	}
 	
 	// Toggle view controller for changing window
@@ -298,17 +298,14 @@ class CalculatorViewController: UIViewController {
 	}
 	
 	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		// Get the new view controller using segue.destination.
-		// Pass the selected object to the new view controller.
-		
 		if segue.identifier == "selectBase" {
 			let basesController = segue.destination as! BasesViewController
 			basesController.selectedBase = currentBase
 		}
 	}
+	
+	
 	
 	@IBAction func unwindBases(unwindSegue : UIStoryboardSegue) {
 		allClear()
