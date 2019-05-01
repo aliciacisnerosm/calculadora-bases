@@ -287,11 +287,6 @@ class CalculatorViewController: UIViewController {
         allClear()
         toggleKeysForBase(base: currentBase)
     }
- 
-
-    
-    @IBAction func equals(_ sender: Any) {
-    }
 }
 
 // MARK: - Extensions

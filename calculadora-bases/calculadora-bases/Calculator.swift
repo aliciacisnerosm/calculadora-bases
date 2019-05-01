@@ -14,8 +14,8 @@ class Calculator: NSObject {
 	
 	// Add two numbers in a given base between 2 and 16
 	func addNumbers(one: Number, two: Number, base: Int) -> Number {
-		let oneDecimal = Float80(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
-		let twoDecimal = Float80(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
+		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
+		let twoDecimal = Double(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
 		
 		let sum = oneDecimal + twoDecimal
         
@@ -31,8 +31,8 @@ class Calculator: NSObject {
 	
 	// Subtract two number in a given base between 2 and 16
 	func subtractNumbers(one: Number, two: Number, base: Int) -> Number {
-		let oneDecimal = Float80(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
-		let twoDecimal = Float80(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
+		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
+		let twoDecimal = Double(two.integralPartToDecimal()) + two.fractionalPartToDecimal()
 		
 		let subtraction = oneDecimal - twoDecimal
         
@@ -47,7 +47,7 @@ class Calculator: NSObject {
 	
 	// Convert number to another base
 	func convertBase(one: Number, base: Int) -> Number  {
-		let oneDecimal = Float80(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
+		let oneDecimal = Double(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
 		let cBase = Number.convertFromDecimalToBase(num: oneDecimal, targetBase: base)
 		let answer = Number(base: base, integralPart: cBase[0]!, fractionalPart: cBase[1])
         

@@ -35,9 +35,26 @@ class HistoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "idcell", for: indexPath)
-        cell.textLabel?.text = (arrayHM[indexPath.row] as! String)
+
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "idcell", for: indexPath) as! HistoryMTableViewCell
+        cell.operation?.text = (arrayHM[indexPath.row] as! String)
+        cell.lbOrder?.text = String(indexPath.row + 1)
+        let params = operationData
+        let opdata = params![indexPath.row]
+        cell.lbBase?.text = "base " + String(opdata.params[1])
+        cell.backgroundColor = cellColorForIndex(indexPath: indexPath)
         return cell
+    }
+    
+    func cellColorForIndex(indexPath:IndexPath) -> UIColor{
+        let row = CGFloat(indexPath.row)
+       // let section = CGFloat(indexPath.section)
+        let saturation  = 1.0 - row / CGFloat(arrayHM.count)
+        return UIColor(hue: CGFloat(0.80), saturation: saturation, brightness: 0.9, alpha: 1.0)
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140.0
     }
 
 
