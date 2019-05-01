@@ -115,11 +115,20 @@ class CalculatorViewController: UIViewController {
 		case 15:		// '2nd' button
 			toggle2ndMode()
 			
-		case 16:		// Change polarity button
+		case 16:		// Change polarity/Complement button
+			if secondMode {
+				operation(nextOp: 3)
+			} else {
+				// TODO: Change polarity function
+			}
 			sender.backgroundColor = buttonColors[3]
 			
-		case 17:		// Change base button
-			toggleChangeBaseView()
+		case 17:		// Change base/Diminished complement button
+			if secondMode {
+				operation(nextOp: 4)
+			} else {
+				toggleChangeBaseView()
+			}
 			sender.backgroundColor = buttonColors[3]
 			
 		case 18:		// History/Settings button
@@ -188,6 +197,7 @@ class CalculatorViewController: UIViewController {
 		case 1:		// Addition
 			result = calculator.addNumbers(one: result, two: number, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " + %@", number.stringFormat()))
+			
 		case 2:		// Subtraction
 			result = calculator.subtractNumbers(one: result, two: number, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " - %@", number.stringFormat()))
@@ -196,12 +206,24 @@ class CalculatorViewController: UIViewController {
 			print("ERROR: Invalid operation?")
 		}
 		
-		lbResult.text = result.stringFormat()
-		hasTyped = false
 		activeOperation = nextOp
 		
+		// Complements are done after all existing operations
+		if activeOperation == 3 {						// Complement
+			result = calculator.getRadixComplement(num: result)
+			lbEquation.text!.append(" → C")
+			activeOperation = 0
+		} else if activeOperation == 4 {		// Diminished Complement
+			result = calculator.getDiminishedRadixComplement(num: result)
+			lbEquation.text!.append(" → CD")
+			activeOperation = 0
+		}
+		
+		lbResult.text = result.stringFormat()
+		hasTyped = false
+		
 		if activeOperation == 0 {
-			lbEquation.text?.append(contentsOf: " =")
+			lbEquation.text!.append(contentsOf: " =")
 		}
 	}
 	
