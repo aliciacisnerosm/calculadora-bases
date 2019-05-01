@@ -16,12 +16,13 @@
 		C055FEAB2277A9E500E03EB0 /* BasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEA82277A9E500E03EB0 /* BasesViewController.swift */; };
 		C055FEAC2277A9E500E03EB0 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */; };
 		C0BB49EB2243FC6E004F2ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */; };
-		C0BB49ED2243FC6E004F2ED0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB49EC2243FC6E004F2ED0 /* ViewController.swift */; };
 		C0BB49F02243FC6E004F2ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */; };
 		C0BB49F22243FC70004F2ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49F12243FC70004F2ED0 /* Assets.xcassets */; };
 		C0BB49F52243FC70004F2ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49F32243FC70004F2ED0 /* LaunchScreen.storyboard */; };
 		F731DDAE224454760006747B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731DDAD224454760006747B /* Calculator.swift */; };
 		F731DDB0224455CE0006747B /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731DDAF224455CE0006747B /* Number.swift */; };
+		F781BB8A227929DA00D06B11 /* OperationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB89227929DA00D06B11 /* OperationData.swift */; };
+		F781BB8C2279385600D06B11 /* HistoryFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB8B2279385600D06B11 /* HistoryFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,13 +36,14 @@
 		C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		C0BB49E72243FC6E004F2ED0 /* calculadora-bases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calculadora-bases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0BB49EC2243FC6E004F2ED0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0BB49EF2243FC6E004F2ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0BB49F12243FC70004F2ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0BB49F42243FC70004F2ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0BB49F62243FC70004F2ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F731DDAD224454760006747B /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F731DDAF224455CE0006747B /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		F781BB89227929DA00D06B11 /* OperationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationData.swift; sourceTree = "<group>"; };
+		F781BB8B2279385600D06B11 /* HistoryFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +81,10 @@
 				C055FEA72277A9E500E03EB0 /* PopOverViewController.swift */,
 				C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */,
 				C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */,
-				C0BB49EC2243FC6E004F2ED0 /* ViewController.swift */,
 				C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */,
 				C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */,
+				F781BB8B2279385600D06B11 /* HistoryFormatter.swift */,
+				F781BB89227929DA00D06B11 /* OperationData.swift */,
 				C053DF5C225B9E830040BDB0 /* HistoryTableViewController.swift */,
 				C053DF62225BDA9E0040BDB0 /* HistoryMTableViewCell.swift */,
 				30C36C9D224D711D0054834F /* CalculatorViewController.swift */,
@@ -171,12 +174,13 @@
 				C055FEAA2277A9E500E03EB0 /* PopOverViewController.swift in Sources */,
 				F731DDB0224455CE0006747B /* Number.swift in Sources */,
 				C055FEAC2277A9E500E03EB0 /* ResultsTableViewCell.swift in Sources */,
+				F781BB8A227929DA00D06B11 /* OperationData.swift in Sources */,
 				C053DF5D225B9E830040BDB0 /* HistoryTableViewController.swift in Sources */,
 				C055FEAB2277A9E500E03EB0 /* BasesViewController.swift in Sources */,
-				C0BB49ED2243FC6E004F2ED0 /* ViewController.swift in Sources */,
 				C053DF5F225B9F5C0040BDB0 /* HistoryManager.swift in Sources */,
 				C0BB49EB2243FC6E004F2ED0 /* AppDelegate.swift in Sources */,
 				F731DDAE224454760006747B /* Calculator.swift in Sources */,
+				F781BB8C2279385600D06B11 /* HistoryFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

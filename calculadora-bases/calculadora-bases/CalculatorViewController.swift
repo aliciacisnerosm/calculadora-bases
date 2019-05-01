@@ -10,9 +10,7 @@ class CalculatorViewController: UIViewController {
 	
     
     var currentBase = 10
-	let calculator = Calculator()
-    var history : HistoryManager!
-    var arrayHM : NSMutableArray!
+    var calculator : Calculator!
    
 	let buttonColors = [
 		UIColor(hex: 0xffffff),
@@ -40,8 +38,8 @@ class CalculatorViewController: UIViewController {
 		lbResult.text = "0"
 		lbEquation.text = ""
 		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
-        arrayHM = NSMutableArray()
-        history = HistoryManager(arrayHM: arrayHM)
+        
+        calculator = Calculator(history: HistoryManager(arrayHM: NSMutableArray()))
 	}
 	
 	// MARK: - Calculator buttons
@@ -160,7 +158,10 @@ class CalculatorViewController: UIViewController {
 	// Perform equal operation
 	func operation(nextOp: Int) {
 		let current = Number(base: currentBase, integralPart: lbResult.text!, fractionalPart: nil)
-		
+        
+        // Adding to history of calculator.
+        var equationToStore : String = ""
+        
 		switch activeOperation {
 		case 0:		// Equal / No operation currently
 			result = current
@@ -177,9 +178,9 @@ class CalculatorViewController: UIViewController {
 			print("ERROR: Invalid operation?")
 		}
         
-
 		
 		lbResult.text = result.getIntegralPart()
+        
 		hasTyped = false
 		activeOperation = nextOp
 		
@@ -290,11 +291,6 @@ class CalculatorViewController: UIViewController {
 
     
     @IBAction func equals(_ sender: Any) {
-        print(lbEquation.text!)
-        let eqFin = lbEquation.text! + " " + lbResult.text!
-        arrayHM.add(eqFin)
-        arrayHM.write(toFile: history.dataFilePath(), atomically: true)
-        print(arrayHM)
     }
 }
 

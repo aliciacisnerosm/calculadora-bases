@@ -9,6 +9,8 @@
 import UIKit
 
 class Calculator: NSObject {
+    
+    var history: HistoryManager
 	
 	// Add two numbers in a given base between 2 and 16
 	func addNumbers(one: Number, two: Number, base: Int) -> Number {
@@ -20,6 +22,10 @@ class Calculator: NSObject {
 		let operation = Number.convertFromDecimalToBase(num: sum, targetBase: base)
 		let answer = Number(base: base, integralPart: operation[0]!, fractionalPart: operation[1])
 		
+        
+        history.saveOperation(numbers: [one, two, answer], operation: " + ",
+                              opData: ["addition", String(base), HistoryFormatter.formatNumber(num: one), HistoryFormatter.formatNumber(num: two), HistoryFormatter.formatNumber(num: answer)])
+        
 		return answer
 	}
 	
@@ -32,7 +38,10 @@ class Calculator: NSObject {
         
 		let operation = Number.convertFromDecimalToBase(num: subtraction, targetBase: base)
 		let answer = Number(base: base, integralPart: operation[0]!, fractionalPart: operation[1])
-		
+        
+        history.saveOperation(numbers: [one, two, answer], operation: " - ",
+                              opData: ["subtraction", String(base), HistoryFormatter.formatNumber(num: one), HistoryFormatter.formatNumber(num: two), HistoryFormatter.formatNumber(num: answer)])
+        
 		return answer
 	}
 	
@@ -41,6 +50,10 @@ class Calculator: NSObject {
 		let oneDecimal = Float80(one.integralPartToDecimal()) + one.fractionalPartToDecimal()
 		let cBase = Number.convertFromDecimalToBase(num: oneDecimal, targetBase: base)
 		let answer = Number(base: base, integralPart: cBase[0]!, fractionalPart: cBase[1])
+        
+        history.saveOperation(numbers: [one, answer], operation: " -> ",
+                              opData: ["convertBase", String(one.base), String(base)])
+        
 		return answer
 	}
     
@@ -65,6 +78,9 @@ class Calculator: NSObject {
         
         let diminishedRadixComplement = self.subtractNumbers(one: baseBeta, two: num, base: num.base)
         
+        history.saveOperation(numbers: [num, diminishedRadixComplement], operation: " -> ",
+                              opData: ["diminished radix complement", String(num.base)])
+        
         return diminishedRadixComplement
     }
     
@@ -72,7 +88,15 @@ class Calculator: NSObject {
     func getRadixComplement(num: Number) -> Number {
         let radixComplement = self.getDiminishedRadixComplement(num: num)
         let numberOne = Number(base: num.base, integralPart: "1", fractionalPart: nil)
+        
+        history.saveOperation(numbers: [num, radixComplement], operation: " -> ",
+                              opData: ["radix complement", String(num.base)])
+        
         return self.addNumbers(one: radixComplement, two: numberOne, base: num.base)
+    }
+    
+    init(history: HistoryManager) {
+        self.history = history
     }
     
 }

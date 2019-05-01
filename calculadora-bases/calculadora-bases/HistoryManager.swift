@@ -11,6 +11,8 @@ import UIKit
 class HistoryManager: NSObject {
 
     var arrayHM :NSMutableArray!
+    var paramsArray = [OperationData]()
+    var maxStorage : Int = 30
     
      init(arrayHM: NSMutableArray) {
         self.arrayHM = arrayHM
@@ -29,14 +31,35 @@ class HistoryManager: NSObject {
         return arreglo!
     }
     
-    func saveData(arregloHistory: NSMutableArray, sEquals : String) -> NSMutableArray{
-        if arregloHistory.count == 9 {
-            arregloHistory.removeObject(at: 0)
+    func saveData(sEquals : String, opData: [String]) {
+        if self.arrayHM.count == maxStorage {
+            self.arrayHM.removeObject(at: 0)
         }
-        arregloHistory.add(sEquals)
         
-        arregloHistory.write(toFile: dataFilePath(), atomically: true)
+        self.arrayHM.add(sEquals)
+        self.arrayHM.write(toFile: dataFilePath(), atomically: true)
         
-        return arregloHistory
+        if self.paramsArray.count == maxStorage {
+            self.paramsArray.remove(at: 0)
+        }
+        
+        let operation = OperationData()
+        operation.setFunctionName(f: opData[0])
+        operation.setParams(p: Array(opData[0..<opData.count]))
+        self.paramsArray.append(operation)
+        
     }
+    
+    func saveOperation(numbers: [Number], operation: String, opData: [String]) {
+        var equationToStore : String = ""
+        
+        if opData[0] == "addition" || opData[0] == "subtraction" {
+            equationToStore = HistoryFormatter.formatOperations(num1: numbers[0], num2: numbers[1], operation: operation)
+        }
+        
+        equationToStore += " = " + HistoryFormatter.formatNumber(num: numbers[numbers.count - 1])
+        
+        self.saveData(sEquals: equationToStore, opData: opData)
+    }
+
 }
