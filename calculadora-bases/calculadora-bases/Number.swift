@@ -35,20 +35,12 @@ class Number: NSObject {
 		
 		// Reverse the order of the number to start at position 0.
 		let reverseNumber = String(self.integralPart.reversed())
-		let digits = CharacterSet.decimalDigits
 		var positionalExponent = 0
 		var decimalAnswer = 0
 		
 		// Convert to unicode scalars to check if they are member of digits.
 		for num in reverseNumber.unicodeScalars {
-			var intNum: Int
-			
-			if digits.contains(num) {
-				intNum = Int(String(num))!
-			} else {
-				intNum = Number.letterToNumber[String(num)]!
-			}
-			
+			let intNum: Int = Number.convertStringDigitToInt(digit: num)
 			// Converting intNum to decimal by using number * base ^ position.
 			decimalAnswer += intNum * Int(pow(Float80(self.base), Float80(positionalExponent)))
 			positionalExponent += 1
@@ -65,19 +57,11 @@ class Number: NSObject {
         
         guard let hasFraction = self.fractionalPart else { return 0 }
         
-        let digits = CharacterSet.decimalDigits
         var positionalExponent = -1
         var decimalAnswer: Float80 = 0.0
         
         for num in hasFraction.unicodeScalars {
-            var intNum: Int
-            
-            if digits.contains(num) {
-                intNum = Int(String(num))!
-            } else {
-                intNum = Number.letterToNumber[String(num)]!
-            }
-            
+            let intNum: Int = Number.convertStringDigitToInt(digit: num)
             // Converting intNum to decimal by using number * base ^ position.
             decimalAnswer += Float80(intNum) * Float80(pow(Float80(self.base), Float80(positionalExponent)))
             positionalExponent -= 1
@@ -88,6 +72,19 @@ class Number: NSObject {
         }
         
         return decimalAnswer
+    }
+    
+    static func convertStringDigitToInt(digit : Unicode.Scalar) -> Int {
+        var num: Int = 0
+        let digits = CharacterSet.decimalDigits
+        
+        if digits.contains(digit) {
+            num = Int(String(digit))!
+        } else if letterToNumber[String(digit)] != nil {
+            num = Number.letterToNumber[String(digit)]!
+        }
+        
+        return num
     }
     
     // MARK -- Converts the fractional part of a number form base 10 to base 'targetBase'.

@@ -13,11 +13,15 @@ class HistoryTableViewController: UITableViewController {
     @IBAction func disItem(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     var arrayHM : NSMutableArray = NSMutableArray()
+    var operationData : [OperationData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let history = HistoryManager(arrayHM: arrayHM)
         arrayHM = history.loadData()
+        operationData = history.retrieveParamsArray()
     }
 
     // MARK: - Table view data source
@@ -72,14 +76,44 @@ class HistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        let historyDetail = segue.destination as! HistoryDetailViewController
+        
+        if let row = self.tableView.indexPathForSelectedRow?.row,
+            let params = operationData {
+            
+            let opData = params[row]
+            
+            historyDetail.operation = opData.functionName
+            
+            if opData.functionName == "addition" || opData.functionName == "subtraction" {
+                historyDetail.firstNum = opData.params[2]
+                historyDetail.secondNum = opData.params[3]
+                historyDetail.base = opData.params[1]
+                historyDetail.answer = opData.params[4]
+            }
+            
+            var sign : String
+            
+            switch opData.functionName {
+            case "addition":
+                sign = "+"
+            case "subtraction":
+                sign = "-"
+            default:
+                sign = ""
+            }
+            
+            historyDetail.operatorSign = sign
+        }
     }
-    */
+ 
 
 }

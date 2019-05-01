@@ -25,6 +25,26 @@ class HistoryManager: NSObject {
             url.appendingPathComponent("history.plist")
         return pathArchivo.path
     }
+    
+    func storeParamsArray() {
+        do {
+            let data = try PropertyListEncoder().encode(self.paramsArray)
+            try data.write(to: OperationData.archiveOpsURL)
+        }
+        catch {
+            print("Could'nt store params array")
+        }
+    }
+    
+    func retrieveParamsArray() -> [OperationData]?{
+        do {
+            let data = try Data.init(contentsOf: OperationData.archiveOpsURL)
+            let paramsTemp = try PropertyListDecoder().decode([OperationData].self, from: data)
+            return paramsTemp
+        } catch {
+            return nil
+        }
+    }
 
     func loadData() -> NSMutableArray{
         let arreglo = NSMutableArray(contentsOfFile: dataFilePath())
@@ -48,6 +68,7 @@ class HistoryManager: NSObject {
         operation.setParams(p: Array(opData[0..<opData.count]))
         self.paramsArray.append(operation)
         
+        self.storeParamsArray()
     }
     
     func saveOperation(numbers: [Number], operation: String, opData: [String]) {

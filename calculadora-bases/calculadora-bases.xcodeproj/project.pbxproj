@@ -23,6 +23,7 @@
 		F731DDB0224455CE0006747B /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731DDAF224455CE0006747B /* Number.swift */; };
 		F781BB8A227929DA00D06B11 /* OperationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB89227929DA00D06B11 /* OperationData.swift */; };
 		F781BB8C2279385600D06B11 /* HistoryFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB8B2279385600D06B11 /* HistoryFormatter.swift */; };
+		F781BB8E2279489300D06B11 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB8D2279489300D06B11 /* HistoryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		F731DDAF224455CE0006747B /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		F781BB89227929DA00D06B11 /* OperationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationData.swift; sourceTree = "<group>"; };
 		F781BB8B2279385600D06B11 /* HistoryFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFormatter.swift; sourceTree = "<group>"; };
+		F781BB8D2279489300D06B11 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */,
 				C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */,
 				C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */,
+				F781BB8D2279489300D06B11 /* HistoryDetailViewController.swift */,
 				C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */,
 				F781BB8B2279385600D06B11 /* HistoryFormatter.swift */,
 				F781BB89227929DA00D06B11 /* OperationData.swift */,
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F781BB8E2279489300D06B11 /* HistoryDetailViewController.swift in Sources */,
 				C053DF63225BDA9E0040BDB0 /* HistoryMTableViewCell.swift in Sources */,
 				30C36C9E224D711D0054834F /* CalculatorViewController.swift in Sources */,
 				C055FEAA2277A9E500E03EB0 /* PopOverViewController.swift in Sources */,
