@@ -305,8 +305,6 @@ class CalculatorViewController: UIViewController {
 		}
 	}
 	
-	
-	
 	@IBAction func unwindBases(unwindSegue : UIStoryboardSegue) {
 		allClear()
 		toggleKeysForBase(base: currentBase)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30C36C9E224D711D0054834F /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C36C9D224D711D0054834F /* CalculatorViewController.swift */; };
+		30CDE3EF227A4C86008966E8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CDE3EE227A4C86008966E8 /* SettingsViewController.swift */; };
 		C053DF5D225B9E830040BDB0 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053DF5C225B9E830040BDB0 /* HistoryTableViewController.swift */; };
 		C053DF5F225B9F5C0040BDB0 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */; };
 		C053DF61225B9FB80040BDB0 /* history.plist in Resources */ = {isa = PBXBuildFile; fileRef = C053DF60225B9FB80040BDB0 /* history.plist */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		30C36C9D224D711D0054834F /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		30CDE3EE227A4C86008966E8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C053DF5C225B9E830040BDB0 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		C053DF60225B9FB80040BDB0 /* history.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = history.plist; path = "calculadora-bases/history.plist"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				30C36C9D224D711D0054834F /* CalculatorViewController.swift */,
 				F731DDAD224454760006747B /* Calculator.swift */,
 				F731DDAF224455CE0006747B /* Number.swift */,
+				30CDE3EE227A4C86008966E8 /* SettingsViewController.swift */,
 				C0BB49F12243FC70004F2ED0 /* Assets.xcassets */,
 				C0BB49F32243FC70004F2ED0 /* LaunchScreen.storyboard */,
 				C0BB49F62243FC70004F2ED0 /* Info.plist */,
@@ -181,6 +184,7 @@
 				F781BB8A227929DA00D06B11 /* OperationData.swift in Sources */,
 				C053DF5D225B9E830040BDB0 /* HistoryTableViewController.swift in Sources */,
 				C055FEAB2277A9E500E03EB0 /* BasesViewController.swift in Sources */,
+				30CDE3EF227A4C86008966E8 /* SettingsViewController.swift in Sources */,
 				C053DF5F225B9F5C0040BDB0 /* HistoryManager.swift in Sources */,
 				C0BB49EB2243FC6E004F2ED0 /* AppDelegate.swift in Sources */,
 				F731DDAE224454760006747B /* Calculator.swift in Sources */,

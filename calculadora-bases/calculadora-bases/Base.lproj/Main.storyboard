@@ -394,7 +394,7 @@
                         <outletCollection property="btnFunctions" destination="liQ-5w-IbB" collectionClass="NSMutableArray" id="vUE-xG-Uki"/>
                         <outletCollection property="btnFunctions" destination="e9F-OK-J39" collectionClass="NSMutableArray" id="tAC-PA-ex8"/>
                         <outletCollection property="btnFunctions" destination="onf-aR-kju" collectionClass="NSMutableArray" id="At3-Q2-ver"/>
-                        <segue destination="S8F-jm-WZx" kind="show" identifier="settings" id="p9g-hr-bcb"/>
+                        <segue destination="f5y-bh-Cg6" kind="show" identifier="settings" id="p9g-hr-bcb"/>
                         <segue destination="geq-cE-yHo" kind="show" identifier="history" id="ylg-S0-21R"/>
                     </connections>
                 </viewController>
@@ -626,20 +626,45 @@
             </objects>
             <point key="canvasLocation" x="133" y="9"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="YM4-S6-Q8F">
             <objects>
-                <viewController id="S8F-jm-WZx" sceneMemberID="viewController">
+                <viewController id="S8F-jm-WZx" customClass="SettingsViewController" customModule="calculadora_bases" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B5L-6D-Dnf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="u2g-JZ-gKR"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="EY0-rb-tn8">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="mg8-ll-VU5">
+                            <connections>
+                                <action selector="disItem:" destination="S8F-jm-WZx" id="Cuj-Rm-Gre"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHA-WV-Eig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="-216"/>
+            <point key="canvasLocation" x="1822" y="-216"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bqL-Xo-jT1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f5y-bh-Cg6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CZS-RK-1da">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S8F-jm-WZx" kind="relationship" relationship="rootViewController" id="vut-eK-zC0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hS-fe-alc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="-216.29464285714286"/>
         </scene>
     </scenes>
 </document>
