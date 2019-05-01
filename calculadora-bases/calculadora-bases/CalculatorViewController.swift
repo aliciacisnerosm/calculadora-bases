@@ -8,10 +8,13 @@ class CalculatorViewController: UIViewController {
 	@IBOutlet weak var btnDelete: UIButton!
 	@IBOutlet var btnFunctions: [UIButton]!
 	
-    
-    var currentBase = 10
-    var calculator : Calculator!
-   
+	@IBOutlet weak var numButtonsStackView: UIStackView!
+	@IBOutlet weak var changeBaseView: UIView!
+	@IBOutlet var changeBaseViewConstraint: NSLayoutConstraint!
+	
+	var currentBase = 10
+	var calculator : Calculator!
+	
 	let buttonColors = [
 		UIColor(hex: 0xffffff),
 		UIColor(hex: 0xfc3951),
@@ -24,22 +27,26 @@ class CalculatorViewController: UIViewController {
 		UIColor(hex: 0xca7be6),
 		UIColor(hex: 0x3d3d3d)
 	]
-    
-    // Default number in calculator on start up.
-    var result = Number(base: 10, integralPart: "0", fractionalPart: nil)
+	
+	// Default number in calculator on start up.
+	var result = Number(base: 10, integralPart: "0", fractionalPart: nil)
 	var activeOperation = 0
 	var secondMode = false
 	var hasTyped = false
+	var showChangeBaseWindow = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-        
-        result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
+		
+		result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
 		lbResult.text = "0"
 		lbEquation.text = ""
 		btnFunctions[2].titleLabel?.textAlignment = NSTextAlignment.center		// Special case to center a multi-lined button
-        
-        calculator = Calculator(history: HistoryManager(arrayHM: NSMutableArray()))
+		
+		calculator = Calculator(history: HistoryManager(arrayHM: NSMutableArray()))
+		
+		self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.bottomAnchor)
+		self.view.layoutIfNeeded()
 	}
 	
 	// MARK: - Calculator buttons
@@ -59,8 +66,6 @@ class CalculatorViewController: UIViewController {
 			sender.backgroundColor = activeColors[3]
 		}
 	}
-    
-    
 	
 	// Activates when a button is pressed
 	@IBAction func buttonPress(_ sender: UIButton) {
@@ -113,6 +118,7 @@ class CalculatorViewController: UIViewController {
 			sender.backgroundColor = buttonColors[3]
 			
 		case 17:		// Change base button
+			toggleChangeBaseView()
 			sender.backgroundColor = buttonColors[3]
 			
 		case 18:		// Settings button
@@ -150,7 +156,7 @@ class CalculatorViewController: UIViewController {
 		result = Number(base: currentBase, integralPart: "0", fractionalPart: nil)
 		activeOperation = 0
 		hasTyped = false
-        
+		
 		lbResult.text = "0"
 		lbEquation.text = ""
 	}
@@ -158,29 +164,28 @@ class CalculatorViewController: UIViewController {
 	// Perform equal operation
 	func operation(nextOp: Int) {
 		let current = Number(base: currentBase, integralPart: lbResult.text!, fractionalPart: nil)
-        
-        // Adding to history of calculator.
-        var equationToStore : String = ""
-        
+		
+		// Adding to history of calculator.
+		var equationToStore : String = ""
+		
 		switch activeOperation {
 		case 0:		// Equal / No operation currently
 			result = current
 			lbEquation.text = current.getIntegralPart()
-                        
+			
 		case 1:		// Addition
 			result = calculator.addNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " + %@", current.getIntegralPart()))
 		case 2:		// Subtraction
 			result = calculator.subtractNumbers(one: result, two: current, base: currentBase)
 			lbEquation.text!.append(contentsOf: String(format: " - %@", current.getIntegralPart()))
-       
+			
 		default:
 			print("ERROR: Invalid operation?")
 		}
-        
+		
 		
 		lbResult.text = result.getIntegralPart()
-        
 		hasTyped = false
 		activeOperation = nextOp
 		
@@ -188,84 +193,99 @@ class CalculatorViewController: UIViewController {
 			lbEquation.text?.append(contentsOf: " =")
 		}
 	}
-    
-    // Toggles keys based on the current base.
-    func toggleKeysForBase(base: Int) {
-        if secondMode {
-            if base > 10 {
-                toggleButton(button: btnNumpad[7], enabled: false)
-                toggleButton(button: btnNumpad[8], enabled: false)
-                toggleButton(button: btnNumpad[9], enabled: false)
-                for idx in 1...6 {
-                    if idx + 10 <= base {
-                        toggleButton(button: btnNumpad[idx], enabled: true)
-                    } else {
-                        toggleButton(button: btnNumpad[idx], enabled: false)
-                    }
-                }
-            }
-        } else {
-            for idx in 0...9 {
-                if idx < base {
-                    toggleButton(button: btnNumpad[idx], enabled: true)
-                } else {
-                    toggleButton(button: btnNumpad[idx], enabled: false)
-                }
-            }
-        }
-    }
-    
-    // Helper function for 'toggle2ndMode'
-    func lettersKeyPadForSecondMode() {
-        
-        if currentBase > 10 {
-            btnNumpad[0].setTitle("00", for: .normal)
-            btnNumpad[1].setTitle("A", for: .normal)
-            btnNumpad[2].setTitle("B", for: .normal)
-            btnNumpad[3].setTitle("C", for: .normal)
-            btnNumpad[4].setTitle("D", for: .normal)
-            btnNumpad[5].setTitle("E", for: .normal)
-            btnNumpad[6].setTitle("F", for: .normal)
-        }
-        
-        btnDelete.setTitle("AC", for: .normal)
-        
-        btnFunctions[1].setTitle("C", for: .normal)
-        btnFunctions[2].setTitle("CD", for: .normal)
-    }
-    
-    // Helper function for 'toggle2ndMode'
-    func numberKeyPadForSecondMode() {
-        btnNumpad[0].setTitle("0", for: .normal)
-        btnNumpad[1].setTitle("1", for: .normal)
-        btnNumpad[2].setTitle("2", for: .normal)
-        btnNumpad[3].setTitle("3", for: .normal)
-        btnNumpad[4].setTitle("4", for: .normal)
-        btnNumpad[5].setTitle("5", for: .normal)
-        btnNumpad[6].setTitle("6", for: .normal)
-        
-        btnDelete.setTitle("⌫", for: .normal)
-        
-        btnFunctions[0].backgroundColor = buttonColors[3]
-        btnFunctions[1].setTitle("⁺∕₋", for: .normal)
-        btnFunctions[2].setTitle("Change Base", for: .normal)
-    }
+	
+	// Toggles keys based on the current base.
+	func toggleKeysForBase(base: Int) {
+		if secondMode {
+			if base > 10 {
+				toggleButton(button: btnNumpad[7], enabled: false)
+				toggleButton(button: btnNumpad[8], enabled: false)
+				toggleButton(button: btnNumpad[9], enabled: false)
+				for idx in 1...6 {
+					if idx + 10 <= base {
+						toggleButton(button: btnNumpad[idx], enabled: true)
+					} else {
+						toggleButton(button: btnNumpad[idx], enabled: false)
+					}
+				}
+			}
+		} else {
+			for idx in 0...9 {
+				if idx < base {
+					toggleButton(button: btnNumpad[idx], enabled: true)
+				} else {
+					toggleButton(button: btnNumpad[idx], enabled: false)
+				}
+			}
+		}
+	}
+	
+	// Helper function for 'toggle2ndMode'
+	func lettersKeyPadForSecondMode() {
+		
+		if currentBase > 10 {
+			btnNumpad[0].setTitle("00", for: .normal)
+			btnNumpad[1].setTitle("A", for: .normal)
+			btnNumpad[2].setTitle("B", for: .normal)
+			btnNumpad[3].setTitle("C", for: .normal)
+			btnNumpad[4].setTitle("D", for: .normal)
+			btnNumpad[5].setTitle("E", for: .normal)
+			btnNumpad[6].setTitle("F", for: .normal)
+		}
+		
+		btnDelete.setTitle("AC", for: .normal)
+		
+		btnFunctions[1].setTitle("C", for: .normal)
+		btnFunctions[2].setTitle("CD", for: .normal)
+	}
+	
+	// Helper function for 'toggle2ndMode'
+	func numberKeyPadForSecondMode() {
+		btnNumpad[0].setTitle("0", for: .normal)
+		btnNumpad[1].setTitle("1", for: .normal)
+		btnNumpad[2].setTitle("2", for: .normal)
+		btnNumpad[3].setTitle("3", for: .normal)
+		btnNumpad[4].setTitle("4", for: .normal)
+		btnNumpad[5].setTitle("5", for: .normal)
+		btnNumpad[6].setTitle("6", for: .normal)
+		
+		btnDelete.setTitle("⌫", for: .normal)
+		
+		btnFunctions[0].backgroundColor = buttonColors[3]
+		btnFunctions[1].setTitle("⁺∕₋", for: .normal)
+		btnFunctions[2].setTitle("Change Base", for: .normal)
+	}
 	
 	// Toggle '2nd' mode and change keys accordingly
 	func toggle2ndMode() {
 		secondMode = !secondMode
 		
 		if secondMode {		// 2nd mode
-            lettersKeyPadForSecondMode()
-            toggleKeysForBase(base: currentBase)
+			lettersKeyPadForSecondMode()
+			toggleKeysForBase(base: currentBase)
 		} else {					// Normal mode
 			numberKeyPadForSecondMode()
-            toggleKeysForBase(base: currentBase)
+			toggleKeysForBase(base: currentBase)
 		}
 	}
 	
+	// Toggle view controller for changing window
+	func toggleChangeBaseView() {
+		showChangeBaseWindow = !showChangeBaseWindow
+		
+		changeBaseViewConstraint.isActive = false
+		if showChangeBaseWindow {
+			changeBaseViewConstraint = self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.topAnchor)
+		} else {
+			changeBaseViewConstraint = self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.bottomAnchor)
+		}
+		changeBaseViewConstraint.isActive = true
+		
+		UIView.animate(withDuration: 0.3) { self.view.layoutIfNeeded() }
+	}
+	
 	// Toggle button usability and visibility
-    func toggleButton(button: UIButton, enabled: Bool) {
+	func toggleButton(button: UIButton, enabled: Bool) {
 		button.isEnabled = enabled
 		button.backgroundColor = button.isEnabled ? buttonColors[0] : activeColors[0]
 	}
@@ -274,19 +294,19 @@ class CalculatorViewController: UIViewController {
 	
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destination.
-	// Pass the selected object to the new view controller.
-        
-        if segue.identifier == "selectBase" {
-            let basesController = segue.destination as! BasesViewController
-            basesController.selectedBase = currentBase
-        }
+		// Get the new view controller using segue.destination.
+		// Pass the selected object to the new view controller.
+		
+		if segue.identifier == "selectBase" {
+			let basesController = segue.destination as! BasesViewController
+			basesController.selectedBase = currentBase
+		}
 	}
-    
-    @IBAction func unwindBases(unwindSegue : UIStoryboardSegue) {
-        allClear()
-        toggleKeysForBase(base: currentBase)
-    }
+	
+	@IBAction func unwindBases(unwindSegue : UIStoryboardSegue) {
+		allClear()
+		toggleKeysForBase(base: currentBase)
+	}
 }
 
 // MARK: - Extensions

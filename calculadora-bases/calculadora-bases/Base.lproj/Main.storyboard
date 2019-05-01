@@ -89,7 +89,6 @@
                                                         <connections>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="P1f-Xd-GHJ"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="aiV-Rt-Ec3"/>
-                                                            <segue destination="So0-8g-bOG" kind="presentation" identifier="selectBase" id="ghz-bY-x24"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onf-aR-kju">
@@ -351,23 +350,36 @@
                                     <constraint firstItem="0YJ-UZ-7Fj" firstAttribute="top" secondItem="NdW-rs-tCT" secondAttribute="top" id="aTc-Ox-cAf"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYH-EJ-knI">
+                                <rect key="frame" x="0.0" y="896" width="414" height="521.5"/>
+                                <connections>
+                                    <segue destination="2Pe-df-Jbu" kind="embed" id="Gxh-xh-Pus"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NdW-rs-tCT" secondAttribute="bottom" id="CGo-OC-IQQ"/>
+                            <constraint firstItem="BYH-EJ-knI" firstAttribute="height" secondItem="615-ma-lfy" secondAttribute="height" id="EnO-Ud-TMF"/>
+                            <constraint firstItem="BYH-EJ-knI" firstAttribute="leading" secondItem="615-ma-lfy" secondAttribute="leading" id="KsH-34-fQF"/>
                             <constraint firstItem="zPb-9N-v9m" firstAttribute="trailing" secondItem="zgy-qH-8AY" secondAttribute="trailing" id="QA7-fU-MAL"/>
                             <constraint firstAttribute="trailing" secondItem="NdW-rs-tCT" secondAttribute="trailing" id="b5x-lB-oAf"/>
                             <constraint firstItem="zgy-qH-8AY" firstAttribute="top" secondItem="zPb-9N-v9m" secondAttribute="top" id="cem-GB-lnt"/>
                             <constraint firstItem="NdW-rs-tCT" firstAttribute="leading" secondItem="JdF-DD-Qd6" secondAttribute="leading" id="djA-T6-nbj"/>
+                            <constraint firstItem="BYH-EJ-knI" firstAttribute="top" secondItem="615-ma-lfy" secondAttribute="bottom" id="kqZ-1C-42l"/>
                             <constraint firstItem="NdW-rs-tCT" firstAttribute="top" secondItem="zgy-qH-8AY" secondAttribute="bottom" id="o1m-4e-hal"/>
+                            <constraint firstItem="BYH-EJ-knI" firstAttribute="width" secondItem="615-ma-lfy" secondAttribute="width" id="pbM-jR-G4V"/>
                             <constraint firstItem="zgy-qH-8AY" firstAttribute="leading" secondItem="zPb-9N-v9m" secondAttribute="leading" id="qeM-cF-Y8G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zPb-9N-v9m"/>
                     </view>
                     <connections>
                         <outlet property="btnDelete" destination="Nni-Ll-fNa" id="XFC-4O-uiL"/>
+                        <outlet property="changeBaseView" destination="BYH-EJ-knI" id="M1j-C4-NaW"/>
+                        <outlet property="changeBaseViewConstraint" destination="kqZ-1C-42l" id="5w4-1o-wE1"/>
                         <outlet property="lbEquation" destination="eyy-G5-ynQ" id="CqH-YI-fRC"/>
                         <outlet property="lbResult" destination="QHo-d4-MuB" id="3px-wH-VC7"/>
+                        <outlet property="numButtonsStackView" destination="615-ma-lfy" id="990-qk-dqA"/>
                         <outletCollection property="btnNumpad" destination="sub-bq-SzR" collectionClass="NSMutableArray" id="jw9-H5-V7N"/>
                         <outletCollection property="btnNumpad" destination="bD2-iM-bFU" collectionClass="NSMutableArray" id="T4v-4x-qkc"/>
                         <outletCollection property="btnNumpad" destination="tv3-dt-uQj" collectionClass="NSMutableArray" id="Lpz-XF-7CT"/>
@@ -388,55 +400,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEW-SH-Mk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136" y="-590"/>
-        </scene>
-        <!--Bases View Controller-->
-        <scene sceneID="R3O-fw-tgQ">
-            <objects>
-                <viewController id="So0-8g-bOG" customClass="BasesViewController" customModule="calculadora_bases" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mqv-98-HhB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbV-0I-LY4">
-                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="So0-8g-bOG" id="kGi-vU-1m6"/>
-                                    <outlet property="delegate" destination="So0-8g-bOG" id="QCS-Wb-d73"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOM-yn-TxK">
-                                <rect key="frame" x="157" y="631" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="DPb-W0-fM6"/>
-                                </constraints>
-                                <state key="normal" title="Select">
-                                    <color key="titleColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2Lh-dv-ymg" kind="unwind" unwindAction="unwindBasesWithUnwindSegue:" id="WWi-eI-VtH"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.098040588200092316" green="0.098037473857402802" blue="0.098038055002689362" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="VOM-yn-TxK" firstAttribute="top" secondItem="DbV-0I-LY4" secondAttribute="bottom" constant="75" id="3Pi-Iz-Xpl"/>
-                            <constraint firstItem="TyG-Ln-Or8" firstAttribute="trailing" secondItem="DbV-0I-LY4" secondAttribute="trailing" id="Gk0-MT-Iy0"/>
-                            <constraint firstItem="VOM-yn-TxK" firstAttribute="centerX" secondItem="mqv-98-HhB" secondAttribute="centerX" id="L5Q-qg-5Lb"/>
-                            <constraint firstItem="DbV-0I-LY4" firstAttribute="centerY" secondItem="mqv-98-HhB" secondAttribute="centerY" id="T92-2p-5Ap"/>
-                            <constraint firstItem="DbV-0I-LY4" firstAttribute="centerX" secondItem="mqv-98-HhB" secondAttribute="centerX" id="jAj-NF-mCJ"/>
-                            <constraint firstItem="DbV-0I-LY4" firstAttribute="leading" secondItem="TyG-Ln-Or8" secondAttribute="leading" id="lcc-yZ-j8X"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="TyG-Ln-Or8"/>
-                    </view>
-                    <connections>
-                        <outlet property="basesPickerView" destination="DbV-0I-LY4" id="0Kp-M8-IW7"/>
-                        <outlet property="btnSelectBase" destination="VOM-yn-TxK" id="4ct-WI-VTf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="2Lh-dv-ymg" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="135" y="181"/>
         </scene>
         <!--History-->
         <scene sceneID="b5c-VI-Kh1">
@@ -624,6 +587,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGI-py-P5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-590"/>
+        </scene>
+        <!--Bases View Controller-->
+        <scene sceneID="QvQ-gK-Qoo">
+            <objects>
+                <viewController id="2Pe-df-Jbu" customClass="BasesViewController" customModule="calculadora_bases" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wEf-a5-6Kw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="521.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCY-bZ-btr">
+                                <rect key="frame" x="0.0" y="153" width="414" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U58-oq-j4f">
+                                <rect key="frame" x="185" y="427.5" width="44" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" red="1" green="0.99998790029999995" blue="0.9999920726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.096320433940000005" green="0.096320433940000005" blue="0.096320433940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tCY-bZ-btr" firstAttribute="leading" secondItem="3dm-fS-5in" secondAttribute="leading" id="EK6-2Z-3Xb"/>
+                            <constraint firstItem="3dm-fS-5in" firstAttribute="bottom" secondItem="U58-oq-j4f" secondAttribute="bottom" constant="30" id="aaf-Db-tCP"/>
+                            <constraint firstItem="tCY-bZ-btr" firstAttribute="trailing" secondItem="3dm-fS-5in" secondAttribute="trailing" id="cGh-jw-1y6"/>
+                            <constraint firstItem="U58-oq-j4f" firstAttribute="centerX" secondItem="wEf-a5-6Kw" secondAttribute="centerX" id="fZX-5a-zwS"/>
+                            <constraint firstItem="tCY-bZ-btr" firstAttribute="centerY" secondItem="wEf-a5-6Kw" secondAttribute="centerY" id="huS-3j-ek5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3dm-fS-5in"/>
+                    </view>
+                    <connections>
+                        <outlet property="basesPickerView" destination="tCY-bZ-btr" id="2s5-hk-zLV"/>
+                        <outlet property="btnSelectBase" destination="U58-oq-j4f" id="I4h-vJ-c2U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vk-pm-fpV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="9"/>
         </scene>
     </scenes>
 </document>
