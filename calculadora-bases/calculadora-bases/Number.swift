@@ -31,7 +31,7 @@ class Number: NSObject {
 	// MARK -- Converts integer part to base 10.
 	func integralPartToDecimal() -> Int {
 		// Just return the number if its base is already 10
-		if base == 10 { return Int(self.integralPart)! }
+		if base == 10 { return Int(self.integralPart)! * (self.isNegative ? -1 : 1) }
 		
 		// Reverse the order of the number to start at position 0.
 		let reverseNumber = String(self.integralPart.reversed())
@@ -167,11 +167,11 @@ class Number: NSObject {
 	init(base: Int, integralPart: String, fractionalPart: String?) {
 		self.base = base
 		self.integralPart = integralPart
-        self.fractionalPart = fractionalPart
+		self.fractionalPart = fractionalPart
 		self.isNegative = false
 		
 		// Remove '-' sign
-		if self.integralPart[integralPart.startIndex] == "-" {
+		if self.integralPart.first == "-" {
 			let start = integralPart.index(integralPart.startIndex, offsetBy: 1)
 			let end = integralPart.index(integralPart.endIndex, offsetBy: 0)
 			let range = start..<end

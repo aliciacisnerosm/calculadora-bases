@@ -119,7 +119,7 @@ class CalculatorViewController: UIViewController {
 			if secondMode {
 				operation(nextOp: 3)
 			} else {
-				// TODO: Change polarity function
+				changePolarity()
 			}
 			sender.backgroundColor = buttonColors[3]
 			
@@ -146,7 +146,7 @@ class CalculatorViewController: UIViewController {
 	
 	// Inputs a digit
 	func typeDigit(digit: String) {
-		if (lbResult.text == "0" || !hasTyped) && digit != "." {
+		if (lbResult.text == "0" || lbResult.text == "-0" || !hasTyped) && digit != "." {
 			lbResult.text = digit
 		} else {
 			lbResult.text!.append(digit)
@@ -163,6 +163,14 @@ class CalculatorViewController: UIViewController {
 		} else if lbResult.text != "0" {
 			lbResult.text = "0"
 			hasTyped = true
+		}
+	}
+	
+	func changePolarity() {
+		if lbResult.text!.first == "-" {
+			lbResult.text!.removeFirst()
+		} else {
+			lbResult.text = "-" + lbResult.text!
 		}
 	}
 	
