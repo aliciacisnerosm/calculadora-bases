@@ -42,7 +42,7 @@ class Number: NSObject {
 		for num in reverseNumber.unicodeScalars {
 			let intNum: Int = Number.convertStringDigitToInt(digit: num)
 			// Converting intNum to decimal by using number * base ^ position.
-			decimalAnswer += intNum * Int(pow(Float80(self.base), Float80(positionalExponent)))
+			decimalAnswer += intNum * Int(pow(Double(self.base), Double(positionalExponent)))
 			positionalExponent += 1
 		}
 		
@@ -53,17 +53,17 @@ class Number: NSObject {
 	}
     
     // MARK -- Converts the fractional part to base 10
-    func fractionalPartToDecimal() -> Float80 {
+    func fractionalPartToDecimal() -> Double {
         
         guard let hasFraction = self.fractionalPart else { return 0 }
         
         var positionalExponent = -1
-        var decimalAnswer: Float80 = 0.0
+        var decimalAnswer: Double = 0.0
         
         for num in hasFraction.unicodeScalars {
             let intNum: Int = Number.convertStringDigitToInt(digit: num)
             // Converting intNum to decimal by using number * base ^ position.
-            decimalAnswer += Float80(intNum) * Float80(pow(Float80(self.base), Float80(positionalExponent)))
+            decimalAnswer += Double(intNum) * Double(pow(Double(self.base), Double(positionalExponent)))
             positionalExponent -= 1
         }
         
@@ -89,12 +89,12 @@ class Number: NSObject {
     
     // MARK -- Converts the fractional part of a number form base 10 to base 'targetBase'.
     // Receives a fractional number less than 1 (0.xxxxx).
-    static func fractionalToBase(num: Float80, targetBase: Int) -> String? {
+    static func fractionalToBase(num: Double, targetBase: Int) -> String? {
         var fractional: String = ""
         var numMut = num
         // Will only have 8 decimal places.
         for _ in 1...8 {
-            numMut *= Float80(targetBase)
+            numMut *= Double(targetBase)
             let addNum = Int(floor(numMut))
             let strNum : String
             
@@ -118,7 +118,7 @@ class Number: NSObject {
     }
 	
 	// MARK -- Converts a number from base 10 to base `targetBase`.
-	static func convertFromDecimalToBase(num: Float80, targetBase: Int) -> [String?] {
+	static func convertFromDecimalToBase(num: Double, targetBase: Int) -> [String?] {
         var varNum = num < 0 ? Int(ceil(num)) : Int(floor(num))
 		var negativeNumber = false
 		var newNumber = ""

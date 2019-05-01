@@ -10,6 +10,10 @@ import UIKit
 
 class HistoryMTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var operation: UILabel!
+    @IBOutlet weak var lbBase: UILabel!
+    @IBOutlet weak var lbOrder: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

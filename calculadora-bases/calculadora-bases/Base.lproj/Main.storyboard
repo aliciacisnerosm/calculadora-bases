@@ -324,7 +324,6 @@
                                                                 <connections>
                                                                     <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="kd6-wB-veH"/>
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="A9d-6I-FD6"/>
-                                                                    <action selector="equals:" destination="svd-6R-VB8" eventType="touchUpInside" id="MZd-R6-tbG"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -448,14 +447,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idcell" rowHeight="89" id="KZy-jb-6X7" customClass="HistoryMTableViewCell" customModule="calculadora_bases" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="89"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idcell" rowHeight="140" id="KZy-jb-6X7" customClass="HistoryMTableViewCell" customModule="calculadora_bases" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZy-jb-6X7" id="105-XA-Hki">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZy-jb-6X7" id="105-XA-Hki" customClass="HistoryMTableViewCell" customModule="calculadora_bases" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="op" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axl-Ra-bcw">
+                                            <rect key="frame" x="49" y="23" width="192" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Base" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnT-Z0-BV3">
+                                            <rect key="frame" x="49" y="95" width="130" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lbOrd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2S-2L-v49">
+                                            <rect key="frame" x="337" y="59" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.33329343795776367" green="0.33335629105567932" blue="0.33328947424888611" alpha="0.73207405821917804" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="lbBase" destination="UnT-Z0-BV3" id="DoW-NZ-bUI"/>
+                                    <outlet property="lbOrder" destination="q2S-2L-v49" id="fnY-J8-AAd"/>
+                                    <outlet property="operation" destination="axl-Ra-bcw" id="LK2-Ea-s2N"/>
                                     <segue destination="1Q2-6m-lDk" kind="show" identifier="detailHistory" id="gyN-Ba-Tpk"/>
                                 </connections>
                             </tableViewCell>
@@ -475,7 +501,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96N-x9-w5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792.753623188406" y="-590.21739130434787"/>
+            <point key="canvasLocation" x="1792.753623188406" y="-590.625"/>
         </scene>
         <!--History Detail View Controller-->
         <scene sceneID="GIA-aS-rIM">
