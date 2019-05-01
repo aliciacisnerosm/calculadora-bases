@@ -152,6 +152,17 @@ class Number: NSObject {
 		return [newNumber, newFractionalNumber]
 	}
 	
+	// Return a formatted string
+	func stringFormat() -> String {
+		var string = (isNegative ? "-" : "") + integralPart
+		
+		if let fraction = fractionalPart {
+			string += "." + fraction
+		}
+		
+		return string
+	}
+	
 	// MARK: - Initializer
 	init(base: Int, integralPart: String, fractionalPart: String?) {
 		self.base = base

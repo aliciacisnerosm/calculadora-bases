@@ -81,7 +81,8 @@ class CalculatorViewController: UIViewController {
 				 6,
 				 7,
 				 8,
-				 9:			// Numpad button (0-9, A-F, .) Note: Case 10 (.) is omitted because decimals have not been implemented yet
+				 9,
+				 10:		// Numpad button (0-9, A-F, .)
 			typeDigit(digit: sender.titleLabel!.text!)
 			sender.backgroundColor = buttonColors[0]
 			
@@ -131,7 +132,7 @@ class CalculatorViewController: UIViewController {
 	
 	// Inputs a digit
 	func typeDigit(digit: String) {
-		if (lbResult.text == "0" || !hasTyped) {
+		if (lbResult.text == "0" || !hasTyped) && digit != "." {
 			lbResult.text = digit
 		} else {
 			lbResult.text!.append(digit)
@@ -163,29 +164,35 @@ class CalculatorViewController: UIViewController {
 	
 	// Perform equal operation
 	func operation(nextOp: Int) {
-		let current = Number(base: currentBase, integralPart: lbResult.text!, fractionalPart: nil)
+		let numString = lbResult.text?.components(separatedBy: ".")
+		let number: Number
+		if numString!.count > 1 {
+			number = Number(base: currentBase, integralPart: numString!.first!, fractionalPart: numString!.last!)
+		} else {
+			number = Number(base: currentBase, integralPart: numString!.first!, fractionalPart: nil)
+		}
 		
 		// Adding to history of calculator.
 		var equationToStore : String = ""
 		
 		switch activeOperation {
 		case 0:		// Equal / No operation currently
-			result = current
-			lbEquation.text = current.getIntegralPart()
+			result = number
+			lbEquation.text = number.stringFormat()
 			
 		case 1:		// Addition
-			result = calculator.addNumbers(one: result, two: current, base: currentBase)
-			lbEquation.text!.append(contentsOf: String(format: " + %@", current.getIntegralPart()))
+			result = calculator.addNumbers(one: result, two: number, base: currentBase)
+			lbEquation.text!.append(contentsOf: String(format: " + %@", number.stringFormat()))
 		case 2:		// Subtraction
-			result = calculator.subtractNumbers(one: result, two: current, base: currentBase)
-			lbEquation.text!.append(contentsOf: String(format: " - %@", current.getIntegralPart()))
+			result = calculator.subtractNumbers(one: result, two: number, base: currentBase)
+			lbEquation.text!.append(contentsOf: String(format: " - %@", number.stringFormat()))
 			
 		default:
 			print("ERROR: Invalid operation?")
 		}
 		
 		
-		lbResult.text = result.getIntegralPart()
+		lbResult.text = result.stringFormat()
 		hasTyped = false
 		activeOperation = nextOp
 		
