@@ -48,6 +48,7 @@ class HistoryDetailViewController: UIViewController {
         lblSecondNum.text = ""
         lblOperatorSign.text = operatorSign
         lblOperation.text = operation
+        lblBase.text = base
     }
     
     func viewForAddAndSub() {

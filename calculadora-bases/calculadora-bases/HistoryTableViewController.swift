@@ -22,6 +22,8 @@ class HistoryTableViewController: UITableViewController {
         let history = HistoryManager(arrayHM: arrayHM)
         arrayHM = history.loadData()
         operationData = history.retrieveParamsArray()
+        
+        self.view.backgroundColor = UIColor(red: 50/256, green: 50/256, blue: 50/256, alpha: 1.0)
     }
 
     // MARK: - Table view data source
