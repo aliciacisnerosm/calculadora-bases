@@ -13,7 +13,13 @@ class UserSettings: NSObject {
     static let defaults = UserDefaults.standard
     
     static func getLang() -> String {
-        let language : String = (defaults.value(forKey: "lang") as? String)!
-        return language
+        let language : String? = (defaults.value(forKey: "lang") as? String)
+        
+        if let _ = language {
+            
+        } else {
+            return "spanish"
+        }
+        return language!
     }
 }
