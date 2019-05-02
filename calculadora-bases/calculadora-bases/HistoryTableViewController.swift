@@ -110,11 +110,15 @@ class HistoryTableViewController: UITableViewController {
             
             historyDetail.operation = opData.functionName
             
-            if opData.functionName == "addition" || opData.functionName == "subtraction" {
+            if opData.functionName == "addition" || opData.functionName == "subtraction" {
                 historyDetail.firstNum = opData.params[2]
                 historyDetail.secondNum = opData.params[3]
                 historyDetail.base = opData.params[1]
                 historyDetail.answer = opData.params[4]
+            } else {
+                historyDetail.firstNum = opData.params[2]
+                historyDetail.answer = opData.params[3]
+                historyDetail.base = opData.params[1]
             }
             
             var sign : String
@@ -124,8 +128,10 @@ class HistoryTableViewController: UITableViewController {
                 sign = "+"
             case "subtraction":
                 sign = "-"
+            case "diminished radix complement":
+                sign = "CD"
             default:
-                sign = ""
+                sign = "C"
             }
             
             historyDetail.operatorSign = sign
