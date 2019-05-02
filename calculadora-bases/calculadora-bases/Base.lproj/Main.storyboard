@@ -356,7 +356,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.098040588200092316" green="0.098037473857402802" blue="0.098038055002689362" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="NdW-rs-tCT" secondAttribute="bottom" id="CGo-OC-IQQ"/>
                             <constraint firstItem="BYH-EJ-knI" firstAttribute="height" secondItem="615-ma-lfy" secondAttribute="height" id="EnO-Ud-TMF"/>
@@ -762,29 +762,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WmM-iy-jud">
-                                <rect key="frame" x="20" y="126" width="374" height="374"/>
-                                <string key="text">Calculadora bases ha sido desarrollado por estudiantes del Tecnológico de Monterrey
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculadora de Bases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmI-79-Ihb">
+                                <rect key="frame" x="88.5" y="123" width="237.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pVv-Ti-u54">
+                                <rect key="frame" x="0.0" y="180.5" width="414" height="48"/>
+                                <string key="text">Desarrollado por estudiantes del Tecnológico de Monterrey
 durante el semestre Enero Mayo de 2019, como parte del curso Desarrollo de
 Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez
-Treviño.
-Desarrolladores:
-Alicia Cisneros
-Jorge Arturo Torres
-Daniel Hernandez
-Calculadora bases se distribuye como está de manera gratuita y se prohíbe su
-distribución y uso con fines de lucro</string>
+Treviño.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desarrolladores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-xQ-lry">
+                                <rect key="frame" x="159" y="260" width="96" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alicia Cisneros" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtK-2Z-laW">
+                                <rect key="frame" x="151" y="292" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daniel Hernández" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAe-HC-mfa">
+                                <rect key="frame" x="139" y="351" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jorge Arturo Torres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2K-8S-CvJ">
+                                <rect key="frame" x="132" y="321" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a63-dh-jRn">
+                                <rect key="frame" x="35" y="458.5" width="344.5" height="21.5"/>
+                                <string key="text">Calculadora bases se distribuye como está de manera gratuita y se prohíbe su
+distribución y uso con fines de lucro</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WmM-iy-jud" firstAttribute="leading" secondItem="yIp-pA-gPY" secondAttribute="leading" constant="20" id="R6g-fw-iwg"/>
-                            <constraint firstItem="yIp-pA-gPY" firstAttribute="trailing" secondItem="WmM-iy-jud" secondAttribute="trailing" constant="20" id="d48-Og-55d"/>
-                            <constraint firstAttribute="bottom" secondItem="WmM-iy-jud" secondAttribute="bottom" id="nLR-Tp-85x"/>
-                            <constraint firstItem="WmM-iy-jud" firstAttribute="top" secondItem="yIp-pA-gPY" secondAttribute="top" constant="38" id="y6z-J8-aFp"/>
+                            <constraint firstItem="pVv-Ti-u54" firstAttribute="top" secondItem="wmI-79-Ihb" secondAttribute="bottom" constant="26" id="11Q-mm-YMO"/>
+                            <constraint firstItem="wmI-79-Ihb" firstAttribute="top" secondItem="yIp-pA-gPY" secondAttribute="top" constant="35" id="94h-MB-SVb"/>
+                            <constraint firstItem="wmI-79-Ihb" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="AFv-ZK-P2c"/>
+                            <constraint firstItem="a63-dh-jRn" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="BeF-IK-lOp"/>
+                            <constraint firstItem="pVv-Ti-u54" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="GmV-RK-QCC"/>
+                            <constraint firstItem="h2K-8S-CvJ" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="J1T-i3-6BP"/>
+                            <constraint firstItem="cNS-xQ-lry" firstAttribute="top" secondItem="pVv-Ti-u54" secondAttribute="bottom" constant="31.5" id="OW0-uz-gge"/>
+                            <constraint firstItem="OtK-2Z-laW" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="R5u-Kt-8PT"/>
+                            <constraint firstItem="cNS-xQ-lry" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="RWY-6g-8eM"/>
+                            <constraint firstItem="pVv-Ti-u54" firstAttribute="leading" secondItem="yIp-pA-gPY" secondAttribute="leading" id="SE0-cz-9tM"/>
+                            <constraint firstItem="bAe-HC-mfa" firstAttribute="top" secondItem="h2K-8S-CvJ" secondAttribute="bottom" constant="9" id="Vt8-yB-0y8"/>
+                            <constraint firstItem="OtK-2Z-laW" firstAttribute="top" secondItem="cNS-xQ-lry" secondAttribute="bottom" constant="16" id="WxX-8Y-ToG"/>
+                            <constraint firstItem="h2K-8S-CvJ" firstAttribute="top" secondItem="OtK-2Z-laW" secondAttribute="bottom" constant="8" id="dcP-Pg-P9S"/>
+                            <constraint firstItem="bAe-HC-mfa" firstAttribute="centerX" secondItem="Owd-vz-jxZ" secondAttribute="centerX" id="dpb-x6-ZuC"/>
+                            <constraint firstAttribute="bottom" secondItem="a63-dh-jRn" secondAttribute="bottom" constant="20" id="l0Y-dn-ROn"/>
+                            <constraint firstItem="yIp-pA-gPY" firstAttribute="trailing" secondItem="pVv-Ti-u54" secondAttribute="trailing" id="pNE-li-mIM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yIp-pA-gPY"/>
                     </view>
