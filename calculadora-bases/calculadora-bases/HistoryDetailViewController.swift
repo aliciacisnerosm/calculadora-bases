@@ -39,6 +39,10 @@ class HistoryDetailViewController: UIViewController {
             viewForComplements()
         }
         
+        
+    }
+    func getOperation()-> String{
+        return operation
     }
     
     func viewForComplements() {
@@ -56,6 +60,7 @@ class HistoryDetailViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return false
     }
+    
     
     func viewForAddAndSub() {
         let firstLen = firstNum.count
@@ -121,14 +126,18 @@ class HistoryDetailViewController: UIViewController {
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "scroll") {
+            let vista = segue.destination as! stepsViewController
+            vista.op = operation
+        }
     }
-    */
+    
 
 }

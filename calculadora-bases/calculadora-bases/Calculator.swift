@@ -97,10 +97,6 @@ class Calculator: NSObject {
         numB = getDiminishedRadixComplement(num: numB, saveOp: false)
         //3.-
         
-        
-        
-        
-        
     }
     
     // Get the radix complement of a number in any base.

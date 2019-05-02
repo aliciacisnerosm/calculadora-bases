@@ -39,6 +39,10 @@ class OperationData: NSObject, Codable {
         self.functionName = f
     }
     
+    func getFunctionName()->String{
+        return functionName
+    }
+    
     func setParams(p: [String]) {
         self.params = p
     }
