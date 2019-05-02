@@ -78,11 +78,11 @@ class HistoryManager: NSObject {
         
         switch opData[0] {
             
-        case "addition", "subtraction":
+        case "addition", "subtraction", "suma", "resta":
             equationToStore = HistoryFormatter.formatOperations(num1: numbers[0], num2: numbers[1], operation: operation)
-        case "diminished radix complement":
+        case "diminished radix complement", "complemento disminuido":
             equationToStore = HistoryFormatter.formatNumber(num: numbers[0]) + " -> CD"
-        case "radix complement":
+        case "radix complement", "complemento":
             equationToStore = HistoryFormatter.formatNumber(num: numbers[0]) + " -> C"
             
         default:

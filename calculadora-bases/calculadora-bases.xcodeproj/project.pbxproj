@@ -21,6 +21,8 @@
 		C0BB49F02243FC6E004F2ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */; };
 		C0BB49F22243FC70004F2ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49F12243FC70004F2ED0 /* Assets.xcassets */; };
 		C0BB49F52243FC70004F2ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49F32243FC70004F2ED0 /* LaunchScreen.storyboard */; };
+		F716A14A227B5B52008D81EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F716A149227B5B52008D81EF /* Settings.bundle */; };
+		F716A14E227B5E6D008D81EF /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F716A14D227B5E6D008D81EF /* UserSettings.swift */; };
 		F731DDAE224454760006747B /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731DDAD224454760006747B /* Calculator.swift */; };
 		F731DDB0224455CE0006747B /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731DDAF224455CE0006747B /* Number.swift */; };
 		F781BB8A227929DA00D06B11 /* OperationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781BB89227929DA00D06B11 /* OperationData.swift */; };
@@ -45,6 +47,8 @@
 		C0BB49F12243FC70004F2ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0BB49F42243FC70004F2ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0BB49F62243FC70004F2ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F716A149227B5B52008D81EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F716A14D227B5E6D008D81EF /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F731DDAD224454760006747B /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F731DDAF224455CE0006747B /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		F781BB89227929DA00D06B11 /* OperationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationData.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */,
 				C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */,
 				C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */,
+				F716A149227B5B52008D81EF /* Settings.bundle */,
 				C055FEAD227AAA3C00E03EB0 /* stepsViewController.swift */,
 				F781BB8D2279489300D06B11 /* HistoryDetailViewController.swift */,
 				C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */,
@@ -102,6 +107,7 @@
 				C0BB49F12243FC70004F2ED0 /* Assets.xcassets */,
 				C0BB49F32243FC70004F2ED0 /* LaunchScreen.storyboard */,
 				C0BB49F62243FC70004F2ED0 /* Info.plist */,
+				F716A14D227B5E6D008D81EF /* UserSettings.swift */,
 			);
 			path = "calculadora-bases";
 			sourceTree = "<group>";
@@ -166,6 +172,7 @@
 			files = (
 				C0BB49F52243FC70004F2ED0 /* LaunchScreen.storyboard in Resources */,
 				C053DF61225B9FB80040BDB0 /* history.plist in Resources */,
+				F716A14A227B5B52008D81EF /* Settings.bundle in Resources */,
 				C0BB49F22243FC70004F2ED0 /* Assets.xcassets in Resources */,
 				C0BB49F02243FC6E004F2ED0 /* Main.storyboard in Resources */,
 			);
@@ -191,6 +198,7 @@
 				30CDE3EF227A4C86008966E8 /* SettingsViewController.swift in Sources */,
 				C053DF5F225B9F5C0040BDB0 /* HistoryManager.swift in Sources */,
 				C0BB49EB2243FC6E004F2ED0 /* AppDelegate.swift in Sources */,
+				F716A14E227B5E6D008D81EF /* UserSettings.swift in Sources */,
 				F731DDAE224454760006747B /* Calculator.swift in Sources */,
 				F781BB8C2279385600D06B11 /* HistoryFormatter.swift in Sources */,
 			);

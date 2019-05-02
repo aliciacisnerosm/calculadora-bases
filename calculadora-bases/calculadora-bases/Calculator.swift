@@ -11,8 +11,7 @@ import UIKit
 class Calculator: NSObject {
     
     var history: HistoryManager
-    let operationsAvailable = ["addition", "subtraction", "convertBase", "diminished radix complement",
-    "radix complement"]
+    var operationsAvailable = [String]()
 	
 	// Add two numbers in a given base between 2 and 16
     func addNumbers(one: Number, two: Number, base: Int, saveOp: Bool = true) -> Number {
@@ -106,6 +105,14 @@ class Calculator: NSObject {
     
     init(history: HistoryManager) {
         self.history = history
+        
+        if UserSettings.getLang() == "spanish" {
+            self.operationsAvailable = ["suma", "resta", "convertBase", "complemento disminuido",
+                                        "complemento"]
+        } else {
+            self.operationsAvailable = ["addition", "subtraction", "convertBase", "diminished radix complement",
+                                        "radix complement"]
+        }
     }
     
 }

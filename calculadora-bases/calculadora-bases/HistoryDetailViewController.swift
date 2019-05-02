@@ -33,7 +33,7 @@ class HistoryDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         switch operation {
             
-        case "addition", "subtraction":
+        case "addition", "subtraction", "suma", "resta":
             viewForAddAndSub()
         default:
             viewForComplements()
@@ -57,7 +57,7 @@ class HistoryDetailViewController: UIViewController {
         
         lblOperation.text = operation
         
-        if operation == "addition" && firstLen < secondLen {
+        if (operation == "addition" || operation == "suma") && firstLen < secondLen {
             lblFirstNum.text = secondNum
             lblSecondNum.text = firstNum
         } else {
@@ -76,9 +76,9 @@ class HistoryDetailViewController: UIViewController {
     // For addition
     func calculateCarry() {
         switch operation {
-        case "addition":
+        case "addition", "suma":
             carryAddition()
-        case "subtraction":
+        case "subtraction", "resta" :
             print("subtraction")
         default:
             print("Invalid operation")

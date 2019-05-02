@@ -112,7 +112,7 @@ class HistoryTableViewController: UITableViewController {
             
             historyDetail.operation = opData.functionName
             
-            if opData.functionName == "addition" || opData.functionName == "subtraction" {
+            if opData.functionName == "addition" || opData.functionName == "subtraction" || opData.functionName == "suma" || opData.functionName == "resta" {
                 historyDetail.firstNum = opData.params[2]
                 historyDetail.secondNum = opData.params[3]
                 historyDetail.base = opData.params[1]
@@ -126,11 +126,11 @@ class HistoryTableViewController: UITableViewController {
             var sign : String
             
             switch opData.functionName {
-            case "addition":
+            case "addition", "suma":
                 sign = "+"
-            case "subtraction":
+            case "subtraction", "resta":
                 sign = "-"
-            case "diminished radix complement":
+            case "diminished radix complement", "complemento disminuido":
                 sign = "CD"
             default:
                 sign = "C"

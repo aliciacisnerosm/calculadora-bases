@@ -20,11 +20,20 @@ class stepsViewController: UIViewController {
     var op = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        sOperation()
+        
+        if UserSettings.getLang() == "spanish" {
+            stepsOperationSpanish()
+        } else {
+            stepsOperationEnglish()
+        }
         // Do any additional setup after loading the view.
     }
     
-    func sOperation(){
+    func stepsOperationSpanish() {
+        
+    }
+    
+    func stepsOperationEnglish(){
 
             lbOne?.text = "1.  Line up the numbers from right to left. If one number is shorter, extend it by adding leading zeros to the front of the shorter number."
             lbSTwo?.text = "2. Work from right to left - doing the same addition and carry operation in each column."
