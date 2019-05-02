@@ -51,7 +51,7 @@ class HistoryTableViewController: UITableViewController {
         let row = CGFloat(indexPath.row)
        // let section = CGFloat(indexPath.section)
         let saturation  = 1.0 - row / CGFloat(arrayHM.count)
-        return UIColor(hue: CGFloat(0.80), saturation: saturation, brightness: 0.9, alpha: 1.0)
+        return UIColor(hue: CGFloat(0.80), saturation: saturation, brightness: 0.8, alpha: 1.0)
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140.0

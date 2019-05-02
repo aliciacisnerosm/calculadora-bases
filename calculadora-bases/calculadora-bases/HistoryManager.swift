@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryManager: NSObject {
 
-    var arrayHM :NSMutableArray!
+    var arrayHM :NSMutableArray
     var paramsArray = [OperationData]()
     var maxStorage : Int = 30
     
@@ -47,8 +47,10 @@ class HistoryManager: NSObject {
     }
 
     func loadData() -> NSMutableArray{
-        let arreglo = NSMutableArray(contentsOfFile: dataFilePath())
-        return arreglo!
+        if let arreglo = NSMutableArray(contentsOfFile: dataFilePath()){
+            return arreglo
+        }
+        return arrayHM
     }
     
     func saveData(sEquals : String, opData: [String]) {
