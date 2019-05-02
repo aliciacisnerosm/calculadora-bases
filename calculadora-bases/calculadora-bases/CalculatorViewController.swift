@@ -1,7 +1,7 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: UIViewController, changeBaseProtocol {
 	@IBOutlet weak var lbResult: UILabel!
 	@IBOutlet weak var lbEquation: UILabel!
 	@IBOutlet var btnNumpad: [UIButton]!
@@ -12,8 +12,10 @@ class CalculatorViewController: UIViewController {
 	@IBOutlet weak var changeBaseView: UIView!
 	@IBOutlet var changeBaseViewConstraint: NSLayoutConstraint!
 	
+	private var basesVC: BasesViewController!
+	
 	var currentBase = 10
-	var calculator : Calculator!
+	var calculator: Calculator!
 	
 	let buttonColors = [
 		UIColor(hex: 0xffffff),
@@ -312,6 +314,9 @@ class CalculatorViewController: UIViewController {
 		
 		changeBaseViewConstraint.isActive = false
 		if showChangeBaseWindow {
+			basesVC.currentNum = result
+			basesVC.reloadData()
+			
 			changeBaseViewConstraint = self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.topAnchor)
 		} else {
 			changeBaseViewConstraint = self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.bottomAnchor)
@@ -327,11 +332,27 @@ class CalculatorViewController: UIViewController {
 		button.backgroundColor = button.isEnabled ? buttonColors[0] : activeColors[0]
 	}
 	
+	// MARK: - Protocols
+	func convertNumber(base: Int) -> Number {
+		return calculator.convertBase(one: result, base: base)
+	}
+	
+	func changeBaseAndDismiss(num: Number) {
+		allClear()
+		toggleKeysForBase(base: num.base)
+		result = num
+		currentBase = num.base
+		lbResult.text = num.stringFormat()
+		toggleChangeBaseView()
+	}
+	
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "selectBase" {
 			let basesController = segue.destination as! BasesViewController
-			basesController.selectedBase = currentBase
+			basesVC = basesController
+			basesController.currentNum = result
+			basesController.delegate = self
 		}
 	}
 	

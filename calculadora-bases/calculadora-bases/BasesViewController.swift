@@ -8,12 +8,27 @@
 
 import UIKit
 
+protocol changeBaseProtocol {
+	func convertNumber(base: Int) -> Number
+	func changeBaseAndDismiss(num: Number)
+}
+
 class BasesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+	
+	var delegate: changeBaseProtocol!
+	
 	@IBOutlet weak var basesPickerView: UIPickerView!
 	@IBOutlet weak var btnSelectBase: UIButton!
 	
+	@IBOutlet weak var lbOriginalBase: UILabel!
+	@IBOutlet weak var lbOriginalNum: UILabel!
+	@IBOutlet weak var lbConvertedNum: UILabel!
+	@IBOutlet weak var lbConvertedBase: UILabel!
+	
 	let bases = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-	var selectedBase: Int = 0
+	var currentNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+	var convertedNum = Number(base: 10, integralPart: "0", fractionalPart: nil)
+	var selectedBase: Int = 2
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -22,8 +37,24 @@ class BasesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 		self.basesPickerView.dataSource = self
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		reloadData()
+	}
+	
+	// Reload data
+	func reloadData() {
+		convertedNum = delegate.convertNumber(base: selectedBase)
+		
+		lbOriginalBase.text = "Base " + String(currentNum.base)
+		lbOriginalNum.text = currentNum.stringFormat()
+		lbConvertedBase.text = "Base " + String(convertedNum.base)
+		lbConvertedNum.text = convertedNum.stringFormat()
+	}
+	
+	// MARK: - Picker Delegate
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		selectedBase = bases[row]
+		reloadData()
 	}
 	
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -41,13 +72,9 @@ class BasesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 	}
 	
 	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if (sender as! UIButton) == btnSelectBase {
-			if let mainView = segue.destination as? CalculatorViewController {
-				mainView.currentBase = selectedBase
-			}
+	override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+		if let _ = unwindSegue.destination as? CalculatorViewController {
+			delegate.changeBaseAndDismiss(num: convertedNum)
 		}
 	}
 }
