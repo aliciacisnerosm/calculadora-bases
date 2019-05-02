@@ -11,7 +11,7 @@ import UIKit
 class HistoryFormatter: NSObject {
     
     static func formatNumber(num: Number) -> String {
-        return num.getIntegralPart() + (num.getFractionalPart() == nil ? "" : num.getFractionalPart()!)
+        return num.getIntegralPart() + (num.getFractionalPart() == nil ? "" : "." + num.getFractionalPart()!)
     }
     
     static func formatOperations(num1: Number, num2: Number, operation: String) -> String {
