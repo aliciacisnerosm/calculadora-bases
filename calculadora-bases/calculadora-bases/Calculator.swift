@@ -98,7 +98,7 @@ class Calculator: NSObject {
         
         if saveOp {
             history.saveOperation(numbers: [num, radixComplement], operation: " -> ",
-                                  opData: [operationsAvailable[4], String(num.base), HistoryFormatter.formatNumber(num: num), HistoryFormatter.formatNumber(num: self.addNumbers(one: radixComplement, two: numberOne, base: radixComplement.base, false))])
+                                  opData: [operationsAvailable[4], String(num.base), HistoryFormatter.formatNumber(num: num), HistoryFormatter.formatNumber(num: self.addNumbers(one: radixComplement, two: numberOne, base: radixComplement.base, saveOp: false))])
         }
         
         return self.addNumbers(one: radixComplement, two: numberOne, base: num.base, saveOp: false)
