@@ -196,8 +196,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			number = Number(base: currentBase, integralPart: numString!.first!, fractionalPart: nil)
 		}
 		
-		// Adding to history of calculator.
-		var equationToStore : String = ""
 		
 		switch activeOperation {
 		case 0:		// Equal / No operation currently

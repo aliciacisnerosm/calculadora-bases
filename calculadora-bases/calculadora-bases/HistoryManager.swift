@@ -74,8 +74,18 @@ class HistoryManager: NSObject {
     func saveOperation(numbers: [Number], operation: String, opData: [String]) {
         var equationToStore : String = ""
         
-        if opData[0] == "addition" || opData[0] == "subtraction" {
+        switch opData[0] {
+            
+        case "addition", "subtraction":
             equationToStore = HistoryFormatter.formatOperations(num1: numbers[0], num2: numbers[1], operation: operation)
+        case "diminished radix complement":
+            equationToStore = HistoryFormatter.formatNumber(num: numbers[0]) + " -> CD"
+        case "radix complement":
+            equationToStore = HistoryFormatter.formatNumber(num: numbers[0]) + " -> C"
+            
+        default:
+            print("invalid operation")
+            
         }
         
         equationToStore += " = " + HistoryFormatter.formatNumber(num: numbers[numbers.count - 1])

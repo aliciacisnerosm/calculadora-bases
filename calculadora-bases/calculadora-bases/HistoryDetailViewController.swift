@@ -31,7 +31,26 @@ class HistoryDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        switch operation {
+            
+        case "addition", "subtraction":
+            viewForAddAndSub()
+        default:
+            viewForComplements()
+        }
         
+    }
+    
+    func viewForComplements() {
+        lblFirstNum.text = firstNum
+        lblAnswer.text = answer
+        lblCarry.text = ""
+        lblSecondNum.text = ""
+        lblOperatorSign.text = operatorSign
+        lblOperation.text = operation
+    }
+    
+    func viewForAddAndSub() {
         let firstLen = firstNum.count
         let secondLen = secondNum.count
         
@@ -51,12 +70,22 @@ class HistoryDetailViewController: UIViewController {
         
         calculateCarry()
         lblCarry.text = carry
-        
     }
     
     // For addition
     func calculateCarry() {
-        
+        switch operation {
+        case "addition":
+            carryAddition()
+        case "subtraction":
+            print("subtraction")
+        default:
+            print("Invalid operation")
+            
+        }
+    }
+    
+    func carryAddition() {
         let f = String(lblFirstNum.text!.reversed()).unicodeScalars
         let s = String(lblSecondNum.text!.reversed()).unicodeScalars
         carry = "0"
@@ -81,6 +110,9 @@ class HistoryDetailViewController: UIViewController {
         carry = String(carry.reversed())
     }
     
+    func carrySubtraction() {
+        
+    }
 
     /*
     // MARK: - Navigation
