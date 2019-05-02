@@ -145,6 +145,12 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			print("ERROR: Invalid button?")
 		}
 	}
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 	
 	// Inputs a digit
 	func typeDigit(digit: String) {

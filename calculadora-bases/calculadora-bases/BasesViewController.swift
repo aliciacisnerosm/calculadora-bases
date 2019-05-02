@@ -77,4 +77,10 @@ class BasesViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 			delegate.changeBaseAndDismiss(num: convertedNum)
 		}
 	}
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 }

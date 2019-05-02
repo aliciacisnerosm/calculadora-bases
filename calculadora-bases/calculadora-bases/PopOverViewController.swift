@@ -8,24 +8,18 @@
 
 import UIKit
 
-class PopOverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PopOverViewController: UIViewController {
     
-    var history : NSArray!
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return history.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let celda = tableView.dequeueReusableCell(withIdentifier: "idcell", for: indexPath)
-        
-        return celda
-
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        preferredContentSize = CGSize(width: 414, height: 500)
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
 

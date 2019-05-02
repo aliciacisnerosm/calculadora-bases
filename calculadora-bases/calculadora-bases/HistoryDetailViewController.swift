@@ -50,6 +50,12 @@ class HistoryDetailViewController: UIViewController {
         lblOperation.text = operation
         lblBase.text = base
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
     
     func viewForAddAndSub() {
         let firstLen = firstNum.count
