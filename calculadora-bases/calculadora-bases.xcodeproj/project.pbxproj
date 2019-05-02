@@ -16,6 +16,7 @@
 		C055FEAA2277A9E500E03EB0 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEA72277A9E500E03EB0 /* PopOverViewController.swift */; };
 		C055FEAB2277A9E500E03EB0 /* BasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEA82277A9E500E03EB0 /* BasesViewController.swift */; };
 		C055FEAC2277A9E500E03EB0 /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */; };
+		C055FEAE227AAA3C00E03EB0 /* stepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C055FEAD227AAA3C00E03EB0 /* stepsViewController.swift */; };
 		C0BB49EB2243FC6E004F2ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */; };
 		C0BB49F02243FC6E004F2ED0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */; };
 		C0BB49F22243FC70004F2ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BB49F12243FC70004F2ED0 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		C055FEA72277A9E500E03EB0 /* PopOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		C055FEA82277A9E500E03EB0 /* BasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasesViewController.swift; sourceTree = "<group>"; };
 		C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		C055FEAD227AAA3C00E03EB0 /* stepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stepsViewController.swift; sourceTree = "<group>"; };
 		C0BB49E72243FC6E004F2ED0 /* calculadora-bases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calculadora-bases.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0BB49EF2243FC6E004F2ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				C055FEA92277A9E500E03EB0 /* ResultsTableViewCell.swift */,
 				C0BB49EA2243FC6E004F2ED0 /* AppDelegate.swift */,
 				C0BB49EE2243FC6E004F2ED0 /* Main.storyboard */,
+				C055FEAD227AAA3C00E03EB0 /* stepsViewController.swift */,
 				F781BB8D2279489300D06B11 /* HistoryDetailViewController.swift */,
 				C053DF5E225B9F5C0040BDB0 /* HistoryManager.swift */,
 				F781BB8B2279385600D06B11 /* HistoryFormatter.swift */,
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C055FEAE227AAA3C00E03EB0 /* stepsViewController.swift in Sources */,
 				F781BB8E2279489300D06B11 /* HistoryDetailViewController.swift in Sources */,
 				C053DF63225BDA9E0040BDB0 /* HistoryMTableViewCell.swift in Sources */,
 				30C36C9E224D711D0054834F /* CalculatorViewController.swift in Sources */,
