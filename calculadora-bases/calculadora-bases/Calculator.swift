@@ -91,6 +91,19 @@ class Calculator: NSObject {
         return diminishedRadixComplement
     }
     
+    func exponent (num:Number, exponent: Number, mantissa: Number){
+        //1.- decimal to binary
+        var numB = convertBase(one: num, base: 2, saveOp: false)
+        //2.- Normalize the mantissa
+        numB = getDiminishedRadixComplement(num: numB, saveOp: false)
+        //3.-
+        
+        
+        
+        
+        
+    }
+    
     // Get the radix complement of a number in any base.
     func getRadixComplement(num: Number, saveOp: Bool = true) -> Number {
         let radixComplement = self.getDiminishedRadixComplement(num: num, saveOp: false)

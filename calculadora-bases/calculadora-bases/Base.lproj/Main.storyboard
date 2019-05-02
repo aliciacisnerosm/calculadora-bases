@@ -718,7 +718,20 @@
                     <view key="view" contentMode="scaleToFill" id="B5L-6D-Dnf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAS-4S-veL">
+                                <rect key="frame" x="330" y="769" width="22" height="22"/>
+                                <connections>
+                                    <action selector="btnInfo:" destination="S8F-jm-WZx" eventType="touchUpInside" id="Jep-ll-N0j"/>
+                                    <segue destination="Y9W-c7-2Nn" kind="show" id="hai-D5-XJQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u2g-JZ-gKR" firstAttribute="trailing" secondItem="ZAS-4S-veL" secondAttribute="trailing" constant="62" id="G0e-7x-Iro"/>
+                            <constraint firstItem="u2g-JZ-gKR" firstAttribute="bottom" secondItem="ZAS-4S-veL" secondAttribute="bottom" constant="71" id="OGx-6t-Nkh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="u2g-JZ-gKR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="EY0-rb-tn8">
@@ -733,6 +746,46 @@
             </objects>
             <point key="canvasLocation" x="1822" y="-216"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Pjh-ej-EHH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05E-Vq-96r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Y9W-c7-2Nn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Owd-vz-jxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WmM-iy-jud">
+                                <rect key="frame" x="20" y="126" width="374" height="374"/>
+                                <string key="text">Calculadora bases ha sido desarrollado por estudiantes del Tecnológico de Monterrey
+durante el semestre Enero Mayo de 2019, como parte del curso Desarrollo de
+Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez
+Treviño.
+Desarrolladores:
+Alicia Cisneros
+Jorge Arturo Torres
+Daniel Hernandez
+Calculadora bases se distribuye como está de manera gratuita y se prohíbe su
+distribución y uso con fines de lucro</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WmM-iy-jud" firstAttribute="leading" secondItem="yIp-pA-gPY" secondAttribute="leading" constant="20" id="R6g-fw-iwg"/>
+                            <constraint firstItem="yIp-pA-gPY" firstAttribute="trailing" secondItem="WmM-iy-jud" secondAttribute="trailing" constant="20" id="d48-Og-55d"/>
+                            <constraint firstAttribute="bottom" secondItem="WmM-iy-jud" secondAttribute="bottom" id="nLR-Tp-85x"/>
+                            <constraint firstItem="WmM-iy-jud" firstAttribute="top" secondItem="yIp-pA-gPY" secondAttribute="top" constant="38" id="y6z-J8-aFp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yIp-pA-gPY"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="500"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2742.0289855072465" y="-325.44642857142856"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bqL-Xo-jT1">
             <objects>
@@ -741,6 +794,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CZS-RK-1da">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="barTintColor" red="0.33329343795776367" green="0.33335629105567932" blue="0.33328947424888611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -830,6 +885,7 @@
                             <constraint firstItem="OoK-1u-jN5" firstAttribute="width" secondItem="92G-qK-zfU" secondAttribute="width" id="iRt-9x-AHX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qGX-8s-ofW" secondAttribute="trailing" id="zva-Pf-VSi"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6df-aW-xqO"/>
                     </view>
                     <size key="freeformSize" width="374" height="600"/>
                     <connections>

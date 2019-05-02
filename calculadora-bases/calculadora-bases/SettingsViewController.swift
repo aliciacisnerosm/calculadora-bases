@@ -8,15 +8,29 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 	
 	@IBAction func disItem(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 	}
 	
-	override func viewDidLoad() {
+    @IBAction func btnInfo(_ sender: Any) {
+        
+    }
+    override func viewDidLoad() {
 		super.viewDidLoad()
 	}
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+   
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
 	
 	
 	/*

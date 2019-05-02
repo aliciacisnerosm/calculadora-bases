@@ -49,6 +49,12 @@ class HistoryDetailViewController: UIViewController {
         lblOperatorSign.text = operatorSign
         lblOperation.text = operation
     }
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
     
     func viewForAddAndSub() {
         let firstLen = firstNum.count
