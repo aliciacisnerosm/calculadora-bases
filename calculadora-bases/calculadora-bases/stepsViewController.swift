@@ -49,7 +49,18 @@ class stepsViewController: UIViewController {
 			4. Si la diferencia es positiva o cero, simplemente anótela en la parte inferior de la columna y registre un préstamo 0 en la siguiente columna a la izquierda.
 			5. Si la diferencia es negativa, agregue 10 y registre el resultado (que ya no será negativo) en la parte inferior de la columna. También registra un préstamo 1 en la siguiente columna a la izquierda.
 			"""
-		}
+        }else{
+           lbSteps.text =
+            """
+            1. Identifica la base en la que esta el número
+            
+            2. Identifica el digito con mayor valor del sistema numerico y restalo a cada digito de número inicial
+            
+            3. Si el número inicial contiene 3 digito y el digito con más valor es 7, resta 777 - número inicial
+            
+            4. Para encontrar el complemento, agrega 1 a la resta anterior
+            """
+        }
 	}
 	
 	func stepsOperationEnglish(){
@@ -72,6 +83,17 @@ class stepsViewController: UIViewController {
 			4. If the difference is positive or zero - then just record it at the bottom of the column and record a borrow 0 in the next column left.
 			5. If the difference is negative - then add 10 to it and record the result (which will no longer be negative) at the bottom of the column. Also record a borrow 1 in the next column left.
 			"""
-		}
+        }else{
+            lbSteps.text =
+            """
+            1. Identify the base or radix
+            
+            2. Identify the largest digit in the numeric system and subtract each digit of the given number to the largest digit. if the number its a 3 digit number & the largest number is 7, subtract the number from 777
+            
+            3. If the number its a 3 digit number & the largest number is 7, subtract the number from 777
+            
+            4. To find r's complement add 1 to th result of the subtraction
+            """
+        }
 	}
 }
