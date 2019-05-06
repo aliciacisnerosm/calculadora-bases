@@ -90,14 +90,38 @@ class Calculator: NSObject {
         return diminishedRadixComplement
     }
     
-    func exponent (num:Number, exponent: Number, mantissa: Number){
-        //1.- decimal to binary
-        var numB = convertBase(one: num, base: 2, saveOp: false)
-        //2.- Normalize the mantissa
-        numB = getDiminishedRadixComplement(num: numB, saveOp: false)
-        //3.-
-        
-    }
+//    func exponent (num:Number, exponent: Number, mantissa: Int) -> Number{
+//
+//        //1.- decimal to binary & checar signo (signo = 0 if positivo)
+//        var numB = convertBase(one: num, base: 2, saveOp: false)
+//
+//        if (numB.isNegative){
+//            let signo = "1"
+//        }else{
+//            let signo = "0"
+//        }
+//        //2.- Normalize the mantissa
+//        numB = getRadixComplement(num: numB, saveOp: false)
+//        /* mover punto decimal al inicio (multiplicar por .1)
+//        checar cuantas veces hace ese procedimiento = n
+//         hacer (2 ^n-1) -1+ n y pasarlo a binary
+//        */
+//
+//        let num = numB.integralPart!.count - 1
+//
+//        let exponente = (pow(2, 7) - 1) + Decimal(num)
+//        let decimalString = "\(exponente)"
+//
+//        var tempNum = Number(base: 10, integralPart: decimalString, fractionalPart: nil)
+//
+//        var temp = convertBase(one: tempNum, base: 2)
+//
+//        print(temp)
+//
+//
+//        return numB
+//
+//    }
     
     // Get the radix complement of a number in any base.
     func getRadixComplement(num: Number, saveOp: Bool = true) -> Number {
