@@ -52,26 +52,53 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 	}
 	
 	// MARK: - Calculator buttons
+	func changeButtonLook(pressed: Bool, sender: UIButton) {
+		let tag = sender.tag
+		
+		if pressed {		// Pressed-down look
+			sender.layer.borderColor = UIColor(hex: 0x191919).cgColor
+			sender.layer.borderWidth = 3
+			
+			if tag <= 10 {						// 0..9 & . buttons
+				sender.backgroundColor = activeColors[0]
+			} else if tag == 11 {		// Delete button
+				sender.backgroundColor = activeColors[1]
+			} else if tag <= 14 {		// =, +, & - buttons
+				sender.backgroundColor = activeColors[2]
+			} else if tag <= 18 {		// Functions buttons
+				sender.backgroundColor = activeColors[3]
+			}
+		} else {				// Normal look
+			sender.layer.borderWidth = 0
+			
+			if tag <= 10 {						// 0..9 & . buttons
+				sender.backgroundColor = buttonColors[0]
+			} else if tag == 11 {		// Delete button
+				sender.backgroundColor = buttonColors[1]
+			} else if tag <= 14 {		// =, +, & - buttons
+				sender.backgroundColor = buttonColors[2]
+			} else if tag <= 18 {		// Functions buttons
+				sender.backgroundColor = buttonColors[3]
+			}
+		}
+	}
+	
 	// Activates when a button is held down
 	@IBAction func buttonHold(_ sender: UIButton) {
-		// Alter background color and border
-		sender.layer.borderColor = UIColor(hex: 0x191919).cgColor
-		sender.layer.borderWidth = 3
-		
-		if sender.tag <= 10 {		// 0..9 & . buttons
-			sender.backgroundColor = activeColors[0]
-		} else if sender.tag == 11 {		// Delete button
-			sender.backgroundColor = activeColors[1]
-		} else if sender.tag <= 14 {		// =, +, & - buttons
-			sender.backgroundColor = activeColors[2]
-		} else if sender.tag <= 18 {		// Functions buttons
-			sender.backgroundColor = activeColors[3]
-		}
+		// Toggle button look
+		changeButtonLook(pressed: true, sender: sender)
+	}
+	
+	// Activates when a button is pressed, but dragged outside before release
+	@IBAction func buttonDragOut(_ sender: UIButton) {
+		// Reset button look
+		changeButtonLook(pressed: false, sender: sender)
 	}
 	
 	// Activates when a button is pressed
 	@IBAction func buttonPress(_ sender: UIButton) {
-		sender.layer.borderWidth = 0			// Reset border
+		// Reset button look
+		changeButtonLook(pressed: false, sender: sender)
 		
 		switch sender.tag {
 		case 0,
@@ -86,7 +113,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 				 9,
 				 10:		// Numpad button (0-9, A-F, .)
 			typeDigit(digit: sender.titleLabel!.text!)
-			sender.backgroundColor = buttonColors[0]
 			
 		case 11:		// Delete/AC button
 			if secondMode {
@@ -94,25 +120,21 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			} else {
 				deleteDigit()
 			}
-			sender.backgroundColor = buttonColors[1]
 			
 		case 12:		// Equal button
 			if activeOperation != 0 || hasTyped {
 				operation(nextOp: 0)
 			}
-			sender.backgroundColor = buttonColors[2]
 			
 		case 13:		// Add button
 			if activeOperation != 1 || hasTyped {
 				operation(nextOp: 1)
 			}
-			sender.backgroundColor = buttonColors[2]
 			
 		case 14:		// Subtract button
 			if activeOperation != 2 || hasTyped {
 				operation(nextOp: 2)
 			}
-			sender.backgroundColor = buttonColors[2]
 			
 		case 15:		// '2nd' button
 			toggle2ndMode()
@@ -123,7 +145,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			} else {
 				changePolarity()
 			}
-			sender.backgroundColor = buttonColors[3]
 			
 		case 17:		// Change base/Diminished complement button
 			if secondMode {
@@ -131,7 +152,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			} else {
 				toggleChangeBaseView()
 			}
-			sender.backgroundColor = buttonColors[3]
 			
 		case 18:		// History/Settings button
 			if secondMode {
@@ -139,7 +159,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			} else {
 				performSegue(withIdentifier: "history", sender: nil)
 			}
-			sender.backgroundColor = buttonColors[3]
 			
 		default:
 			print("ERROR: Invalid button?")
@@ -287,6 +306,7 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			btnDelete.setTitle("AC", for: .normal)
 			
 			// Function keys
+			btnFunctions[0].backgroundColor = activeColors[3]
 			btnFunctions[1].setTitle("C", for: .normal)
 			btnFunctions[2].setTitle("CD", for: .normal)
 			btnFunctions[3].setTitle("Settings", for: .normal)
@@ -304,7 +324,6 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 			btnDelete.setTitle("⌫", for: .normal)
 			
 			// Function keys
-			btnFunctions[0].backgroundColor = buttonColors[3]
 			btnFunctions[1].setTitle("⁺∕₋", for: .normal)
 			btnFunctions[2].setTitle("Change Base", for: .normal)
 			btnFunctions[3].setTitle("History", for: .normal)

@@ -62,6 +62,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="oP7-5t-Aps"/>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Cts-os-syY"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="KVG-Zj-hGT"/>
                                                         </connections>
@@ -74,6 +75,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="9X5-LL-GoO"/>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="h7x-N0-l7F"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="bh3-Nj-fmo"/>
                                                         </connections>
@@ -86,6 +88,7 @@
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="EMk-U2-kny"/>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="P1f-Xd-GHJ"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="aiV-Rt-Ec3"/>
                                                         </connections>
@@ -98,6 +101,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="79i-2r-DTy"/>
                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="sts-UI-imc"/>
                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="chL-91-zRl"/>
                                                         </connections>
@@ -124,6 +128,7 @@
                                                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="bQH-LJ-wFc"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Aop-et-Ddl"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="L4o-0g-D3Q"/>
                                                                         </connections>
@@ -139,6 +144,7 @@
                                                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="lxg-eQ-k1V"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Vth-QR-0sl"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="ghr-Uv-dlM"/>
                                                                         </connections>
@@ -154,6 +160,7 @@
                                                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="bUM-0u-m1c"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="djT-qT-W8Q"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="lcU-Er-K3A"/>
                                                                         </connections>
@@ -171,6 +178,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="iqd-ci-8xp"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="L6o-BG-Kl3"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="nI8-EH-VqO"/>
                                                                         </connections>
@@ -183,6 +191,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="sZt-Aa-AnK"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="dai-2L-cYZ"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="d3g-AP-CCH"/>
                                                                         </connections>
@@ -195,6 +204,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="wii-wQ-Edd"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="rkI-IJ-MFr"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="QPg-AV-HMV"/>
                                                                         </connections>
@@ -212,6 +222,7 @@
                                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="g41-yz-2Vu"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Ewd-vi-kn5"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="rV1-eh-0BM"/>
                                                                         </connections>
@@ -224,6 +235,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="oHU-jt-uQ6"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="jO6-3E-9a5"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="kni-tF-dTZ"/>
                                                                         </connections>
@@ -236,6 +248,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="ilr-pC-Qzv"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="qA5-gR-urV"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="nrn-0H-URd"/>
                                                                         </connections>
@@ -253,6 +266,7 @@
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="BC8-X9-for"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="Nch-ct-R3s"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="hx0-bw-Hl8"/>
                                                                         </connections>
@@ -265,6 +279,7 @@
                                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="IwD-uF-ZeT"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="v2s-jg-idu"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="Dyv-Hq-O3C"/>
                                                                         </connections>
@@ -277,6 +292,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="XsQ-qh-Ijc"/>
                                                                             <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="TrX-zq-1k3"/>
                                                                             <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="wXZ-Pl-9lD"/>
                                                                         </connections>
@@ -296,6 +312,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="HY0-cY-s43"/>
                                                                     <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="JcU-Bp-9Ou"/>
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="pj8-hV-GWB"/>
                                                                 </connections>
@@ -308,6 +325,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="yiz-UV-9SG"/>
                                                                     <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="nuE-6b-HCe"/>
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="IxJ-mw-yv7"/>
                                                                 </connections>
@@ -320,6 +338,7 @@
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="buttonDragOut:" destination="svd-6R-VB8" eventType="touchDragExit" id="JEh-wh-VDk"/>
                                                                     <action selector="buttonHold:" destination="svd-6R-VB8" eventType="touchDown" id="kd6-wB-veH"/>
                                                                     <action selector="buttonPress:" destination="svd-6R-VB8" eventType="touchUpInside" id="A9d-6I-FD6"/>
                                                                 </connections>
