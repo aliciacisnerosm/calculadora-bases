@@ -106,11 +106,5 @@ class stepsViewController: UIViewController {
             lbFive.isHidden = true
             lbSSix.isHidden = true
         }
-
-        
     }
-    
-    
-    
-
 }
