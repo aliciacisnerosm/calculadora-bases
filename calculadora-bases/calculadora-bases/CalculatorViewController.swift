@@ -50,6 +50,10 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 		self.changeBaseView.topAnchor.constraint(equalTo: numButtonsStackView.bottomAnchor)
 		self.view.layoutIfNeeded()
 	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
 	
 	// MARK: - Calculator buttons
 	func changeButtonLook(pressed: Bool, sender: UIButton) {
@@ -333,6 +337,7 @@ class CalculatorViewController: UIViewController, changeBaseProtocol {
 	
 	// Toggle view controller for changing window
 	func toggleChangeBaseView() {
+        operation(nextOp: 0)
 		showChangeBaseWindow = !showChangeBaseWindow
 		
 		changeBaseViewConstraint.isActive = false
